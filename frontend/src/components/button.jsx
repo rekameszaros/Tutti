@@ -1,9 +1,9 @@
-// function SignUpForm() {
-//     return (
-//       <div>
-//         <p>Hi</p>
-//       </div>
-//     );
-//   }
+function Button() {
+  return (
+    <button>
+      <p>Sign up</p>
+    </button>
+  );
+}
 
-//   export default SignUpForm;
+export default Button;
