@@ -1,5 +1,5 @@
-import SignUpForm from "../components/signup-form";
-import Navigation from "../components/navigation";
+import SignUpForm from "../components/Signup-form";
+import Navigation from "../components/Navigation";
 function SignUp() {
   return (
     <>

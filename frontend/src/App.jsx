@@ -1,11 +1,11 @@
 import { useState } from "react";
-import SignUp from "./pages/signup";
+import Home from "./pages/Home";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <SignUp />
+      <Home />
     </>
   );
 }
