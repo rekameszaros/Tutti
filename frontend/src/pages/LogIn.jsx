@@ -1,14 +1,13 @@
-import SignUpForm from "../components/Signup-form";
 import Navigation from "../components/Navigation";
-function SignUp() {
+function LogIn() {
   return (
     <div className="SignUp" id="outer-container">
       <Navigation pageWrapID={"page-wrap"} outerContainerId={"outer-container"} />
       <div id="page-wrap">
-        <SignUpForm />
+        <p>Log in page</p>
       </div>
     </div>
   );
 }
 
-export default SignUp;
+export default LogIn;

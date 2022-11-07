@@ -1,3 +1,22 @@
 .form {
-  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+}
+.form > * {
+  padding: 2vw;
+}
+.form input {
+  width: 20%;
+  height: 120%;
+  align-self: flex-e;
+  margin-left: 3vw;
+}
+.form input[type="submit"] {
+  width: 10%;
+  padding: 0.8vw;
+  align-self: center;
+  font-size: 1.2vw;
+}
+.form {
+  font-size: 1em;
 }
