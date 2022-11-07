@@ -1,14 +1,35 @@
 import Button from "./Button";
+import { slide as Menu } from "react-burger-menu";
+import "./navigation.css";
 
-function Navigation() {
+export default (Navigation) => {
   return (
-    <>
-      <p>navigation</p>
-      <Button />
-      <Button />
-      <Button />
-    </>
+    <Menu>
+      <a className="Navigation" href="/">
+        Home
+      </a>
+      <a className="Navigation" href="/signup">
+        Signup Page
+      </a>
+      <a className="Navigation" href="/login">
+        Login
+      </a>
+      <a className="Navigation" href="/ensemble">
+        Create Ensemble
+      </a>
+    </Menu>
   );
-}
+};
 
-export default Navigation;
+//function Navigation() {
+// return (
+//   <>
+//     <p>navigatnion</p>
+//     <Button />
+//     <Button />
+//     <Button />
+//   </>
+// );
+//}
+
+//export default Navigation;
