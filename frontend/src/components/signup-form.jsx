@@ -25,7 +25,7 @@ function SignUpForm() {
       body: JSON.stringify(user),
     });
     const res = await response.json();
-    // console.log(res);
+     console.log(res);
     return res;
   }
   return (
