@@ -1,18 +1,33 @@
+import { useState } from "react";
 import styles from "./signup-form.module.css";
+import Select from "react-select";
 function SignUpForm() {
   const url = "http://localhost:3005/";
+  const [user, setUser] = useState({});
+
+  const options = [
+    { value: "piano", label: "Piano" },
+    { value: "guitar", label: "Guitar" },
+    { value: "cello", label: "Cello" },
+    { value: "violin", label: "Violin" },
+  ];
+
   async function handleSubmit(event) {
     event.preventDefault();
-    const user = {
+    let newUser = {};
+    console.log(event);
+    newUser = {
       name: event.currentTarget.elements.name.value,
       email: event.currentTarget.elements.email.value,
       password: event.currentTarget.elements.password.value,
       confirmPassword: event.currentTarget.elements.checkPassword.value,
       instrument: event.currentTarget.elements.instrument.value,
     };
+
     console.log(user);
-    // use this for validation
-    const response = await postUser(user);
+
+    // why was it not working when i put user instead of newuser only from second try ?
+    const response = await postUser(newUser);
     console.log(response);
   }
   async function postUser(user) {
@@ -25,6 +40,10 @@ function SignUpForm() {
       body: JSON.stringify(user),
     });
     const res = await response.json();
+    setUser((user) => ({
+      ...user,
+      ...res,
+    }));
     // console.log(res);
     return res;
   }
@@ -32,24 +51,21 @@ function SignUpForm() {
     <form onSubmit={handleSubmit} className={styles.form}>
       <label htmlFor="name">
         Name:
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" defaultValue={user.name} />
       </label>
       <label htmlFor="email">
         Email:
-        <input type="email" name="email" id="email" />
+        <input type="email" name="email" id="email" defaultValue={user.email} />
       </label>
       <label htmlFor="password">
         Password:
-        <input type="password" name="password" id="password" />
+        <input type="password" name="password" id="password" defaultValue={user.password} />
       </label>
       <label htmlFor="checkPassword">
         Confirm Password:
-        <input type="password" name="checkPassword" id="checkPassword" />
+        <input type="password" name="checkPassword" id="checkPassword" defaultValue={user.confirmPassword} />
       </label>
-      <label htmlFor="instrument">
-        Instrument:
-        <input type="text" name="instrument" id="instrument" />
-      </label>
+      <Select options={options} name="instrument" id="instrument" defaultValue={user.instrument} placeholder="Select your instrument" />
       <input type="submit" name="submit" id="submit" value="Submit" />
     </form>
   );

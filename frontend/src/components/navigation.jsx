@@ -20,16 +20,3 @@ export default (Navigation) => {
     </Menu>
   );
 };
-
-//function Navigation() {
-// return (
-//   <>
-//     <p>navigatnion</p>
-//     <Button />
-//     <Button />
-//     <Button />
-//   </>
-// );
-//}
-
-//export default Navigation;
