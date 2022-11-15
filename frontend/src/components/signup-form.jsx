@@ -1,9 +1,11 @@
 import { useState } from "react";
-import styles from "./signup-form.module.css";
+import styles from "./form.module.css";
 import Select from "react-select";
+import { Navigate, useNavigate } from "react-router-dom";
 function SignUpForm() {
   const url = "http://localhost:3005/";
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   const options = [
     { value: "piano", label: "Piano" },
@@ -28,6 +30,7 @@ function SignUpForm() {
 
     // why was it not working when i put user instead of newuser only from second try ?
     const response = await postUser(newUser);
+    console.log("does it get here?");
     console.log(response);
   }
   async function postUser(user) {
@@ -40,11 +43,13 @@ function SignUpForm() {
       body: JSON.stringify(user),
     });
     const res = await response.json();
+
     setUser((user) => ({
       ...user,
       ...res,
     }));
     // console.log(res);
+
     return res;
   }
   return (
