@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\components",
+    "\\frontend\\src\\components\\css-modules",
+    "\\frontend\\src\\components\\ensemble",
+    "\\frontend\\src\\components\\navigation",
+    "\\frontend\\src\\components\\signup",
+    "\\frontend\\src\\pages",
+    "\\frontend\\src\\pages\\css-modules"
+  ],
+  "SelectedNode": "\\frontend\\src\\components\\navigation\\navigation.jsx",
+  "PreviewInSolutionExplorer": false
+}
