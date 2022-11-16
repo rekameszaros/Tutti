@@ -7,10 +7,13 @@ import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './auth/constants';
 import { AuthService } from './auth/auth.service';
+import { EnsambleModule } from './ensamble/ensamble.module';
+
 @Module({
   imports: [
     UserModule,
     AuthModule,
+    EnsambleModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '30m' },
