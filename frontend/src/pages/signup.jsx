@@ -1,6 +1,6 @@
-import SignUpForm from "../components/Signup-form";
-import Navigation from "../components/Navigation";
-import styles from "./signUp.module.css";
+import SignUpForm from "../components/signup/Signup-form";
+import Navigation from "../components/navigation/Navigation";
+import styles from "../pages/css-modules/signUp.module.css";
 
 function SignUp() {
   return (

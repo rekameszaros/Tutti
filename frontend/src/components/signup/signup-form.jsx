@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./form.module.css";
+import styles from "../css-modules/form.module.css";
 import Select from "react-select";
 import { Navigate, useNavigate } from "react-router-dom";
 function SignUpForm() {

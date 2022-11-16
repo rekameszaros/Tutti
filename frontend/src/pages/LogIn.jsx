@@ -1,6 +1,6 @@
-import Navigation from "../components/Navigation";
-import LogInForm from "../components/LogIn-form";
-import styles from "./signUp.module.css";
+import Navigation from "../components/navigation/Navigation";
+import LogInForm from "../components/log-in/LogIn-form";
+import styles from "../pages/css-modules/signUp.module.css";
 
 function LogIn() {
   return (
