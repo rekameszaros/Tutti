@@ -35,7 +35,7 @@ export default function Navbar() {
             <a href="/find">Find Ensemble</a>
           </li>
           <li>
-            <a href="/create">Create Ensemble</a>
+            <a href="/ensemble">Create Ensemble</a>
           </li>
         </ul>
       </div>
