@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styles from "./form.module.css";
-import MyModal from "./Modal";
+import styles from "../css-modules/form.module.css";
+import MyModal from "../Modal";
 
 export default function LogInForm() {
   const url = "http://localhost:3005/";

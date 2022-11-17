@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import CreateEnsemble from "./pages/CreateEnsemble";
+import FindEnsemble from "./pages/FindEnsemble";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +22,12 @@ const router = createBrowserRouter([
     element: <LogIn />,
   },
   {
-    path: "ensemble",
+    path: "create",
     element: <CreateEnsemble />,
+  },
+  {
+    path: "find",
+    element: <FindEnsemble />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,6 +1,6 @@
-import EnsambleCreate from "../components/createEnsemble-form";
-import Navigation from "../components/Navigation";
-import styles from "./signUp.module.css";
+import EnsambleCreate from "../components/ensemble/createEnsemble-form";
+import Navigation from "../components/navigation/Navigation";
+import styles from "../pages/css-modules/signUp.module.css";
 
 function CreateEnsemble() {
   return (
