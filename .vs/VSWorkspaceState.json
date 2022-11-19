@@ -4,7 +4,6 @@
     "\\frontend",
     "\\frontend\\src",
     "\\frontend\\src\\components",
-    "\\frontend\\src\\components\\css-modules",
     "\\frontend\\src\\components\\ensemble",
     "\\frontend\\src\\components\\log-in",
     "\\frontend\\src\\components\\navigation",
@@ -12,6 +11,6 @@
     "\\frontend\\src\\components\\shared components\\button",
     "\\frontend\\src\\components\\signup"
   ],
-  "SelectedNode": "\\frontend\\src\\components\\signup\\signup-form.jsx",
+  "SelectedNode": "\\frontend\\src\\components\\navigation\\navigation.css",
   "PreviewInSolutionExplorer": false
 }

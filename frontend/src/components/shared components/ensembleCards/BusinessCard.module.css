@@ -1,28 +1,32 @@
 .card {
-  width: 200px;
-  min-height: 100px;
-  background-color: #1a1b21;
-  border-radius: 10px;
-  color: white;
-  margin: 25px;
-  padding: 15px;
+    width: 290px;
+    min-height: 165px;
+    background-color: #fff;
+    border-radius: 10px;
+    color: white;
+    margin: 25px;
+    padding: 15px;
+    box-shadow: 0 0 2px 0px #808080;
+}
+
+.headline {
+    font-family: Montserrat, Google;
+    font-weight: bold;
+    text-decoration: none;
+    color: #353A5D;
+    font-size: 16px;
 }
 
 .name {
-  color: white;
-  font-size: 25px;
-  margin-bottom: 10px;
-  font-weight: 800;
+    font-family: Montserrat, Google;
+    text-decoration: none;
+    color: #777777;
+    font-size: 14.4px;
 }
 
-.jobTitle {
-  color: #f3bf99;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.website {
-  color: #dbd9d9;
-  font-size: 14px;
-  font-weight: 500;
+.instrument {
+    font-family: Montserrat, Google;
+    text-decoration: none;
+    color: #777777;
+    font-size: 14.4px;
 }

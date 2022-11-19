@@ -30,7 +30,7 @@
   font-family: Montserrat, Google;
   font-weight: bold;
   text-decoration: none;
-  color: #1A202C;
+  color: #353A5D;
   font-size: 16px;
   padding: 0px 24px;
 
@@ -50,7 +50,7 @@
 
 
 .hamburger {
-  color: #1A202C;
+  color: #353A5D;
   border: 0;
   height: 40px;
   width: 40px;
@@ -64,7 +64,7 @@
   display: none;
   background-color: #fff;
 }
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 770px) {
   .hamburger {
     display: block;
   }
@@ -87,7 +87,7 @@
   }
 
   .navigation-menu li a {
-    color: black;
+    color: #353A5D;
     width: 100%;
     padding: 1.5rem 0;
   }

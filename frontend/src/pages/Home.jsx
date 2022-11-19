@@ -6,7 +6,6 @@ function Home() {
 
         <div className="Home" id="outer-container">
             <Navigation pageWrapID={"page-wrap"} outerContainerId={"outer-container"} />
-            <p>This is Home</p>
             <TheMain />
         </div>
     );

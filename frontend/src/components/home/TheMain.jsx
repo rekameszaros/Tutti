@@ -50,9 +50,9 @@ export default function TheMain() {
             return (
               <BusinessCard
                 key={"business-cards-" + index}
-                name={contact.name}
-                job={contact.job}
-                website={contact.website}
+                headline={contact.name}
+                name={contact.job}
+                instrument={contact.website}
               />
             );
           })}
