@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-
+  const userId = localStorage.getItem("id");
   return (
     <nav className="navigation">
       <a href="/" className="brand-name">
@@ -36,6 +36,9 @@ export default function Navbar() {
           </li>
           <li>
             <a href="/create">Create Ensemble</a>
+          </li>
+          <li>
+            <a href={"/profile?id=" + userId}>Profile</a>
           </li>
         </ul>
       </div>

@@ -7,6 +7,8 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import CreateEnsemble from "./pages/CreateEnsemble";
 import FindEnsemble from "./pages/FindEnsemble";
+import Profile from "./pages/Profile";
+const userId = localStorage.getItem("id");
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "find",
     element: <FindEnsemble />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(

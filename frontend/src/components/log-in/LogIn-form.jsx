@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import styles from "../css-modules/form.module.css";
 import MyModal from "../Modal";
@@ -18,17 +19,12 @@ export default function LogInForm() {
       password: event.currentTarget.elements.password.value,
     };
 
-    console.log(user);
+    // console.log(user);
 
     const response = await postUser(logUser);
     console.log(response.token);
     localStorage.setItem("token", response.token);
-    if (response.token) {
-      setShowModal(true);
-      setTimeout(() => {
-        window.location.replace("/");
-      }, 3000);
-    }
+    localStorage.setItem("id", response.id);
   }
   async function postUser(user) {
     console.log(user);
@@ -42,14 +38,20 @@ export default function LogInForm() {
     });
     const res = await response.json();
 
-    setUser((user) => ({
-      ...user,
-      ...res,
-    }));
-    // console.log(res);
+    if (res.token) {
+      setShowModal(true);
+      // setUser(res.id);
 
+      setTimeout(() => {
+        window.location.replace("/profile?id=" + res.id);
+      }, 3000);
+    }
     return res;
   }
+
+  // useEffect(() => {
+  //   setUser(postUser);
+  // }, []);
 
   return (
     <>
