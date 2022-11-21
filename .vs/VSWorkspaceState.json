@@ -4,13 +4,13 @@
     "\\frontend",
     "\\frontend\\src",
     "\\frontend\\src\\components",
-    "\\frontend\\src\\components\\ensemble",
-    "\\frontend\\src\\components\\log-in",
-    "\\frontend\\src\\components\\navigation",
+    "\\frontend\\src\\components\\home",
     "\\frontend\\src\\components\\shared components",
     "\\frontend\\src\\components\\shared components\\button",
-    "\\frontend\\src\\components\\signup"
+    "\\frontend\\src\\components\\shared components\\ensembleCards",
+    "\\frontend\\src\\components\\signup",
+    "\\frontend\\src\\pages"
   ],
-  "SelectedNode": "\\frontend\\src\\components\\navigation\\navigation.css",
+  "SelectedNode": "\\frontend\\src\\components\\ensemble\\createEnsemble-form.jsx",
   "PreviewInSolutionExplorer": false
 }

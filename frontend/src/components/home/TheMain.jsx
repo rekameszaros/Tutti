@@ -4,8 +4,57 @@ import { useEffect } from "react";
 import { transformToArray } from "../utils/toArray";
 import { useState } from "react";
 
+/*
+This as standalone code works and fetches data for http://localhost:5000/ensambles
+
+
+const Express = require("express");
+const BodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectID;
+const CONNECTION_URL = 'mongodb+srv://tuttiuser:tuttipassword@tutti.ipgkfmj.mongodb.net/tutti';
+const DATABASE_NAME = "tutti";
+
+
+var app = Express();
+app.use(BodyParser.json());
+app.use(BodyParser.urlencoded({ extended: true }));
+var database, collection;
+
+app.listen(3005, () => {
+    MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
+        if (error) {
+            throw error;
+        }
+        database = client.db(DATABASE_NAME);
+        collection = database.collection("ensambles");
+        console.log("Connected to `" + DATABASE_NAME + "`!");
+    });
+});
+
+app.post("/ensambles", (request, response) => {
+    collection.insert(request.body, (error, result) => {
+        if (error) {
+            return response.status(500).send(error);
+        }
+        response.send(result.result);
+    });
+});
+
+app.get("/ensambles", (request, response) => {
+    collection.find({}).toArray((error, result) => {
+        if (error) {
+            return response.status(500).send(error);
+        }
+        response.send(result);
+    });
+});
+*/
+
+//This logic works but still missing the data fetch from our database
+/*
 const url =
-  "https://web-1st-semester-default-rtdb.europe-west1.firebasedatabase.app/business-contacts.json";
+  'http://localhost:3005/ensamble';
 
 export default function TheMain() {
   const [contacts, setContacts] = useState([]);
@@ -31,7 +80,7 @@ export default function TheMain() {
   }, [contacts]);
 
   // Using async/await
-  /*
+  
   useEffect(() => {
     async function getData() {
       const response = await fetch(url);
@@ -40,8 +89,7 @@ export default function TheMain() {
     }
     getData();
   }, []);
-  */
-
+  
   return (
     <main className={styles.main}>
       <div className={styles.split}>
@@ -63,4 +111,4 @@ export default function TheMain() {
     </main>
   );
 }
-
+*/
