@@ -1,11 +1,13 @@
 import styles from "./BusinessCard.module.css";
 
-const BusinessCard = ({headline, name, instrument}) => {
+const BusinessCard = ({headline, location, desc, members}) => {
     return (
         <div className={styles.card}>
             <p className={styles.headline}>{headline}</p>
-            <p className={styles.name}>{name}</p>
-            <p className={styles.instrument}>{instrument}</p>
+            <p className={styles.name}>{location}</p>
+            <p className={styles.instrument}>{desc}</p>
+            <p className={styles.instrument}>{members}</p>
+
         </div>
     );
 };

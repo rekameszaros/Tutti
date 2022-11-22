@@ -52,7 +52,7 @@ app.get("/ensambles", (request, response) => {
 */
 
 //This logic works but still missing the data fetch from our database
-/*
+
 const url =
   'http://localhost:3005/ensamble';
 
@@ -99,8 +99,10 @@ export default function TheMain() {
               <BusinessCard
                 key={"business-cards-" + index}
                 headline={contact.name}
-                name={contact.job}
-                instrument={contact.website}
+                location={contact.location}
+                desc={contact.shortDescription}
+                members={contact.groupMember}
+
               />
             );
           })}
@@ -111,4 +113,3 @@ export default function TheMain() {
     </main>
   );
 }
-*/

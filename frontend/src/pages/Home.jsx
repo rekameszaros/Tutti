@@ -1,7 +1,7 @@
 import Navigation from "../components/navigation/navigation";
 import TheMain from "../components/home/TheMain";
 
-function Home() {
+export default function Home() {
     return (
 
         <div className="Home" id="outer-container">
@@ -11,4 +11,4 @@ function Home() {
     );
 }
 
-export default Home;
+

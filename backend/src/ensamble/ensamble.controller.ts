@@ -6,7 +6,14 @@ import { Ensamble } from './ensamble.schema';
 @Controller('ensamble')
 export class EnsambleController {
   constructor(private readonly ensambleService: EnsambleService) {}
-
+  
+  @Get()
+   async getEnsambles(): Promise<any> {
+    const results = await this.ensambleService.getEnsambles()
+return results
+   }
+   
+  
   //   @Get()
   //   async getBusinessCards(): Promise<BusinessCard[]> {
   //     // console.log(request);
