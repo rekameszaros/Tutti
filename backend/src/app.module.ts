@@ -19,7 +19,8 @@ import { EnsambleModule } from './ensamble/ensamble.module';
       signOptions: { expiresIn: '30m' },
     }),
     MongooseModule.forRoot(
-      'mongodb+srv://tuttiuser:tuttipassword@tutti.ipgkfmj.mongodb.net/tutti',
+      process.env.DATABASE_URL ||
+        'mongodb+srv://tuttiuser:tuttipassword@tutti.ipgkfmj.mongodb.net/tutti',
     ),
   ],
   controllers: [AppController],
