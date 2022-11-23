@@ -21,13 +21,14 @@ export class UserController {
 
   // does not work yet perfectly
   // @UseGuards(JwtAuthGuard)
+
   @Get(':id')
   getOneUser(@Param('id') id: string) {
     return this.userService.getOneUser(id);
   }
 
   // this solves the error in the console but makes the get on top not work anymore
-  // @Get()
+  // @Get('/')
   // async getUsers(@Req() request: Request): Promise<User[]> {
   //   const result: User[] = await this.userService.getUsers();
   //   return result;

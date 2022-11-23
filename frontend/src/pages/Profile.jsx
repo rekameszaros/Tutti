@@ -1,6 +1,6 @@
 import ProfileForm from "../components/profile/Profile-form";
 import Navigation from "../components/navigation/Navigation";
-import styles from "../pages/css-modules/signUp.module.css";
+import styles from "../pages/css-modules/profile.module.css";
 
 function Profile() {
   return (

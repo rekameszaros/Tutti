@@ -4,7 +4,7 @@ import styles from "../pages/css-modules/signUp.module.css";
 
 function LogIn() {
   return (
-    <div className="SignUp" id="outer-container">
+    <div className="LogIn" id="outer-container">
       <Navigation pageWrapID={"page-wrap"} outerContainerId={"outer-container"} />
       <div id="page-wrap" className={styles.pageWrap}>
         <LogInForm />

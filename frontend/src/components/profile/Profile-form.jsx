@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "../css-modules/form.module.css";
 import Select from "react-select";
 import { useEffect } from "react";
-import Button from "../support components/button/button";
+import Button from "./../shared components/button/button";
 // import { Navigate, useNavigate } from "react-router-dom";
 function ProfileForm() {
   const url = "http://localhost:3005/";

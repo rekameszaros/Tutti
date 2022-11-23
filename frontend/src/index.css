@@ -13,3 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+body {
+  background-color: #faf9f9;
+}
+
+/* h1,
+h2,
+h4,
+p {
+    color: white;
+} */

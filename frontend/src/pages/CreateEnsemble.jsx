@@ -4,7 +4,7 @@ import styles from "../pages/css-modules/signUp.module.css";
 
 function CreateEnsemble() {
   return (
-    <div className="SignUp" id="outer-container">
+    <div className="CreateEnsemble" id="outer-container">
       <Navigation pageWrapID={"page-wrap"} outerContainerId={"outer-container"} />
       <div id="page-wrap" className={styles.pageWrap}>
         <EnsambleCreate />

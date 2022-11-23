@@ -9,9 +9,9 @@ export class EnsambleService {
     @InjectModel(Ensamble.name)
     private ensambleModel: Model<EnsambleDocument>,
   ) {}
-  //   getBusinessCards(): Promise<BusinessCard[]> {
-  //     return this.bcModel.find().exec();
-  //   }
+   getEnsambles(): Promise<Ensamble[]> {
+       return this.ensambleModel.find().exec();
+    }
   createEnsamble(ensamble: any) {
     const savedEnsamble = new this.ensambleModel(ensamble);
     savedEnsamble.save();
