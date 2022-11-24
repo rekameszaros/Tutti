@@ -9,6 +9,8 @@ function ProfileForm() {
   const [data, setData] = useState([]);
   const [userId, setID] = useState("");
   const tokenFromStorage = localStorage.getItem("token");
+ // localStorage.setItem("user", JSON.stringify(data))
+ 
 
   useEffect(() => {
     const location = window.location.toString();
@@ -38,9 +40,10 @@ function ProfileForm() {
       .then((res) => res.json())
       .then((result) => {
         setData(result);
+        
       })
       .catch((err) => console.log("error"));
-    // console.log(data);
+   
   };
 
   const saveUser = (newUser) => {
