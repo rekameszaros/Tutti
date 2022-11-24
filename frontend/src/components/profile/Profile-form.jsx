@@ -62,7 +62,8 @@ function ProfileForm() {
     const newUser = {
       name: event.currentTarget.elements.name.value,
       email: event.currentTarget.elements.email.value,
-      password: event.currentTarget.elements.password.value,
+      // how not to change the password
+      // password: "",
       instrument: event.currentTarget.elements.instrument.value,
     };
     console.log(event.currentTarget.elements.instrument);
@@ -108,10 +109,10 @@ function ProfileForm() {
             Email:
             <input type="email" name="email" id="email" defaultValue={data.email} />
           </label>
-          <label htmlFor="password">
+          {/* <label htmlFor="password">
             Password:
             <input type="password" name="password" id="password" defaultValue={data.password} />
-          </label>
+          </label> */}
 
           <Select options={options} name="instrument" id="instrument" defaultValue={data.instrument} placeholder={data.instrument} />
           <input type="submit" name="submit" id="submit" value="Update" />

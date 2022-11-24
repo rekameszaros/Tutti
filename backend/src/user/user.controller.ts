@@ -50,7 +50,7 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Put(':id')
-  putUser(@Body() user: UserDto, @Param('id') id: string) {
+  putUser(@Body() user: any, @Param('id') id: string) {
     return this.userService.updateUser(user, id);
   }
 }
