@@ -17,8 +17,10 @@ export class  Ensamble {
   @Prop({ required: true })
   shortDescription: string;
 
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: User.name }] })
+  @Prop([User])
   User: User[]
 }
+
+
 
 export const  EnsambleSchema = SchemaFactory.createForClass(Ensamble);

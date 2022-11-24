@@ -43,7 +43,7 @@ export default function TheMain() {
       <div className={styles.split}>
         <div className={styles.cardLayout}>
           {contacts.map((contact, index) => {
-            return <BusinessCard key={"business-cards-" + index} headline={contact.name} location={contact.location} desc={contact.shortDescription} members={contact.groupMember} />;
+            return <BusinessCard key={"business-cards-" + index} headline={contact.name} location={contact.location} desc={contact.shortDescription} members={contact.groupMember} id = {contact._id}  />;
           })}
         </div>
       </div>
