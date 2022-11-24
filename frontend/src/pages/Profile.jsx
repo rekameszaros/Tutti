@@ -1,16 +1,16 @@
+import ProfileForm from "../components/profile/Profile-form";
 import Navigation from "../components/navigation/Navigation";
-import LogInForm from "../components/log-in/LogIn-form";
-import styles from "../pages/css-modules/signUp.module.css";
+import styles from "../pages/css-modules/profile.module.css";
 
-function LogIn() {
+function Profile() {
   return (
-    <div className="LogIn" id="outer-container">
+    <div className="SignUp" id="outer-container">
       <Navigation pageWrapID={"page-wrap"} outerContainerId={"outer-container"} />
       <div id="page-wrap" className={styles.pageWrap}>
-        <LogInForm />
+        <ProfileForm />
       </div>
     </div>
   );
 }
 
-export default LogIn;
+export default Profile;

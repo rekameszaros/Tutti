@@ -16,31 +16,23 @@ export class AppController {
     private userService: UserService,
     private jwtService: JwtService,
   ) {}
-  // comment to be deletedddd
-  // @Get()
-  // getHello(): string {
-  //   return this.appService.getHello();
-  // }
-  // some comment
+
   @UseGuards(LocalAuthGuard)
   @Post('/login')
   async login(@Request() req, @Res({ passthrough: true }) response: Response) {
-    // console.log(req.user);
     const user = await this.userService.findOneUser(req.user._doc.email);
     const jwt = this.jwtService.sign({ user: user });
     return {
       statusCode: 201,
       message: 'Logged in successfully',
       token: jwt,
+      id: req.user._id,
     };
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get('profile')
-  async getProfile(@Request() req) {
-    // console.log(req.user);
-    console.log('response in contorller');
-    console.log(req.user);
-    return await this.userService.findOneUser(req.user.email);
-  }
+  // @UseGuards(JwtAuthGuard)
+  // @Get('profile')
+  // async getProfile(@Request() req) {
+  //   return await this.userService.findOneUser(req.user.email);
+  // }
 }

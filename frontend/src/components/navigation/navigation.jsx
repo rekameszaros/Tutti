@@ -3,7 +3,13 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-
+  const userId = localStorage.getItem("id");
+  const token = localStorage.getItem("token");
+  const logOut = () => {
+    console.log("I am logging out");
+    localStorage.clear();
+    window.location.replace("/login");
+  };
   return (
     <nav className="navigation">
       <a href="/" className="brand-name">
@@ -15,9 +21,10 @@ export default function Navbar() {
           setIsNavExpanded(!isNavExpanded);
         }}
       >
-        {/* icon from Heroicons.com */}
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="white">
-          <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clipRule="evenodd" />
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 16" fill="#1A202C">
+          <rect width="20" height="3"></rect>
+          <rect y="6" width="20" height="3"></rect>
+          <rect y="12" width="20" height="3"></rect>
         </svg>
       </button>
       <div className={isNavExpanded ? "navigation-menu expanded" : "navigation-menu"}>
@@ -28,15 +35,28 @@ export default function Navbar() {
           <li>
             <a href="/signup">Sign Up</a>
           </li>
-          <li>
-            <a href="/login">Login</a>
-          </li>
-          <li>
-            <a href="/find">Find Ensemble</a>
-          </li>
-          <li>
-            <a href="/create">Create Ensemble</a>
-          </li>
+          {token && (
+            <li>
+              <a href="#" onClick={logOut}>
+                Log out
+              </a>
+            </li>
+          )}
+          {!token && (
+            <li>
+              <a href="/login">Log in</a>
+            </li>
+          )}
+          {token && (
+            <>
+              <li>
+                <a href="/create">Create Ensemble</a>
+              </li>
+              <li>
+                <a href={"/profile?id=" + userId}>Profile</a>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

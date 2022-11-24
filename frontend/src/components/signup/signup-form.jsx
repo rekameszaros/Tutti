@@ -1,11 +1,17 @@
 import { useState } from "react";
 import styles from "../css-modules/form.module.css";
 import Select from "react-select";
+import MyModal from "../Modal";
+
 import { Navigate, useNavigate } from "react-router-dom";
 function SignUpForm() {
   const url = "http://localhost:3005/";
   const [user, setUser] = useState({});
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const options = [
     { value: "piano", label: "Piano" },
@@ -25,14 +31,9 @@ function SignUpForm() {
       confirmPassword: event.currentTarget.elements.checkPassword.value,
       instrument: event.currentTarget.elements.instrument.value,
     };
-
-    console.log(user);
-
-    // why was it not working when i put user instead of newuser only from second try ?
     const response = await postUser(newUser);
-    console.log("does it get here?");
-    console.log(response);
   }
+
   async function postUser(user) {
     const response = await fetch(url + "user", {
       method: "POST",
@@ -46,33 +47,40 @@ function SignUpForm() {
 
     setUser((user) => ({
       ...user,
-      ...res,
+      ...res.user,
     }));
-    // console.log(res);
-
+    if (res.statusCode === 201) {
+      setShowModal(true);
+      setTimeout(() => {
+        window.location.replace("/login");
+      }, 3000);
+    }
     return res;
   }
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <label htmlFor="name">
-        Name:
-        <input type="text" name="name" id="name" defaultValue={user.name} />
-      </label>
-      <label htmlFor="email">
-        Email:
-        <input type="email" name="email" id="email" defaultValue={user.email} />
-      </label>
-      <label htmlFor="password">
-        Password:
-        <input type="password" name="password" id="password" defaultValue={user.password} />
-      </label>
-      <label htmlFor="checkPassword">
-        Confirm Password:
-        <input type="password" name="checkPassword" id="checkPassword" defaultValue={user.confirmPassword} />
-      </label>
-      <Select options={options} name="instrument" id="instrument" defaultValue={user.instrument} placeholder="Select your instrument" />
-      <input type="submit" name="submit" id="submit" value="Submit" />
-    </form>
+    <>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <label htmlFor="name">
+          Name:
+          <input type="text" name="name" id="name" defaultValue={user.name} />
+        </label>
+        <label htmlFor="email">
+          Email:
+          <input type="email" name="email" id="email" defaultValue={user.email} />
+        </label>
+        <label htmlFor="password">
+          Password:
+          <input type="password" name="password" id="password" defaultValue={user.password} />
+        </label>
+        <label htmlFor="checkPassword">
+          Confirm Password:
+          <input type="password" name="checkPassword" id="checkPassword" defaultValue={user.confirmPassword} />
+        </label>
+        <Select options={options} name="instrument" id="instrument" defaultValue={user.instrument} placeholder="Select your instrument" />
+        <input type="submit" name="submit" id="submit" value="Submit" />
+      </form>
+      <MyModal showModal={showModal} text="User has been signed up succesfully" closeModal={closeModal} />
+    </>
   );
 }
 

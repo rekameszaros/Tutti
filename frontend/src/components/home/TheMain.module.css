@@ -1,0 +1,14 @@
+.main {
+  height: 100%;
+  display: block;
+}
+
+.split {
+  flex: 1;
+}
+
+.cardLayout {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

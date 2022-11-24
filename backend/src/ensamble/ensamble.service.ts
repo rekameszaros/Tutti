@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Ensamble, EnsambleDocument } from './ensamble.schema';
+import { Ensamble, EnsambleDocument } from './ensamble.schema'
+import { EnsambleDto } from './ensamble.dto';
+import { UserDto } from 'src/user/user.dto';
+
 
 @Injectable()
 export class EnsambleService {
@@ -9,19 +12,25 @@ export class EnsambleService {
     @InjectModel(Ensamble.name)
     private ensambleModel: Model<EnsambleDocument>,
   ) {}
-  //   getBusinessCards(): Promise<BusinessCard[]> {
-  //     return this.bcModel.find().exec();
-  //   }
-  createEnsamble(ensamble: any) {
+   getEnsambles(): Promise<Ensamble[]> {
+       return this.ensambleModel.find().exec();
+    }
+
+  createEnsamble(ensamble: EnsambleDto) {
     const savedEnsamble = new this.ensambleModel(ensamble);
     savedEnsamble.save();
     return savedEnsamble;
-    // connect to database and save business card
+   
   }
-  //   updateBusinessCard(id: string, businessCard: any) {
-  //     // connect to databse and update
-  //   }
-  //   deleteBusinessCard(id: string) {
-  //     // delete the business card
-  //   }
+
+  create(create: EnsambleDto): Promise<Ensamble> {
+    const createEnsamble = new this.ensambleModel(create);
+    return createEnsamble.save();
+  }
+  async addUsers(id: string, ur: UserDto) {
+    const updateEnsambel = await this.ensambleModel.findById(id);
+    updateEnsambel.User.push(ur);
+
+    return updateEnsambel.save();
+  }
 }
