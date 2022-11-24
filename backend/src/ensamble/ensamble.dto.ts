@@ -1,27 +1,32 @@
+import { Ensamble } from './ensamble.schema';
+import { User } from 'src/user/user.schema';
+
 import { IsEmail, IsNotEmpty } from 'class-validator';
 
-export class UserDto {
+export class EnsambleDto {
   @IsNotEmpty()
   name: string;
 
-  @IsEmail()
-  email: string;
+  @IsNotEmpty()
+  location: string;
 
   @IsNotEmpty()
-  password: string;
+  shortDescription: string;
 
   @IsNotEmpty()
-  instrument: string;
+  User: User[];
 
   constructor(
     name: string,
-    email: string,
-    password: string,
-    instrument: string,
+
+    location: string,
+    shortDescription: string,
+    User: User[],
   ) {
     this.name = name;
-    this.email = email;
-    this.password = password;
-    this.instrument = instrument;
+
+    this.location = location;
+    this.shortDescription = shortDescription;
+    this.User = User;
   }
 }

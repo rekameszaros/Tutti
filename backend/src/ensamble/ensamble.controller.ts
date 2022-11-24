@@ -1,31 +1,19 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { EnsambleService } from './ensamble.service';
-
-// import { Request, response } from 'express';
-// import { request } from 'http';
+import { EnsambleDto } from './ensamble.dto';
 import { Ensamble } from './ensamble.schema';
+import { UserDto } from 'src/user/user.dto';
+
 @Controller('ensamble')
 export class EnsambleController {
   constructor(private readonly ensambleService: EnsambleService) {}
 
   @Get()
-  async getEnsambles(): Promise<any> {
+  async getEnsambles(): Promise<EnsambleDto[]> {
     const results = await this.ensambleService.getEnsambles();
     return results;
   }
 
-  //   @Get()
-  //   async getBusinessCards(): Promise<BusinessCard[]> {
-  //     // console.log(request);
-  //     const result: BusinessCard[] =
-  //       await this.businessCardService.getBusinessCards();
-  //     console.log(result);
-  //     return result;
-  //   }
-  //   @Delete(':id')
-  //   deleteBusinessCard(@Param('id') id: string) {
-  //     console.log(id);
-  //   }
   @Post()
   createEnsamble(@Body() body) {
     console.log(body);
@@ -33,5 +21,11 @@ export class EnsambleController {
       ensamble: this.ensambleService.createEnsamble(body),
       statusCode: 201,
     };
+  }
+
+  // Users
+  @Post(':id/users')
+  addUsers(@Param('id') id: string, @Body() User: UserDto): Promise<Ensamble> {
+    return this.ensambleService.addUsers(id, User);
   }
 }
