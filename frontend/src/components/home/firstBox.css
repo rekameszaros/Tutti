@@ -1,0 +1,9 @@
+.Box {
+    padding: 80px 60px;
+    background: #bf1e2e;
+    position: static;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}

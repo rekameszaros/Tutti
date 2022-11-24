@@ -1,16 +1,18 @@
 {
   "ExpandedNodes": [
     "",
+    "\\backend",
+    "\\backend\\src",
+    "\\backend\\src\\user",
     "\\frontend",
     "\\frontend\\src",
     "\\frontend\\src\\components",
     "\\frontend\\src\\components\\home",
     "\\frontend\\src\\components\\shared components",
-    "\\frontend\\src\\components\\shared components\\button",
-    "\\frontend\\src\\components\\shared components\\ensembleCards",
+    "\\frontend\\src\\components\\shared components\\Footer",
     "\\frontend\\src\\components\\signup",
     "\\frontend\\src\\pages"
   ],
-  "SelectedNode": "\\frontend\\src\\components\\ensemble\\createEnsemble-form.jsx",
+  "SelectedNode": "\\frontend\\src\\components\\shared components\\Footer\\footer.jsx",
   "PreviewInSolutionExplorer": false
 }
