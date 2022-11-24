@@ -9,7 +9,7 @@ function ProfileForm() {
   const [data, setData] = useState([]);
   const [userId, setID] = useState("");
   const tokenFromStorage = localStorage.getItem("token");
- // localStorage.setItem("user", JSON.stringify(data))
+ localStorage.setItem("user", JSON.stringify(data))
  
 
   useEffect(() => {

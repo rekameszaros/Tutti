@@ -26,11 +26,6 @@ const BusinessCard = ({headline, location, desc, members, id}) => {
           .then((result) => setData(result))
           .catch((err) => console.log("error"));
       };
-
-
-    //   {contacts.map((contact, index) => {
-    //     return <BusinessCard key={"business-cards-" + index} headline={contact.name} location={contact.location} desc={contact.shortDescription} members={names} id= {contact._id}  />;
-    //   })}
     
     return (
         <div className={styles.card}>

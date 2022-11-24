@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const url = "http://localhost:3005/ensamble";
 
+  const names = []
 export default function TheMain() {
   const [contacts, setContacts] = useState([]);
 
@@ -23,15 +24,13 @@ export default function TheMain() {
       });
   }, []);
 
-  const names = []
   useEffect(() => {
-    console.log(contacts);
+  
 contacts.map((contact, index) => {
   contact.User.map((myUser) => {
   const name = myUser.name
   names.push(name)
   })
-  console.log(names)
 })
   }, [contacts]);
 
