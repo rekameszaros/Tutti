@@ -17,10 +17,12 @@
 
   /* z-index: -1; */
 }
-.form > * {
+.form > *,
+.formEnsamble > * {
   padding: 2vw;
 }
-.form input {
+.form input,
+.formEnsamble input {
   height: 1vw;
   width: 18vw;
   margin-left: 3vw;
@@ -29,7 +31,8 @@
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
-.form input[type="submit"] {
+.form input[type="submit"],
+.formEnsamble input[type="submit"] {
   height: 3vw;
   padding: 0.8vw;
   align-self: center;
@@ -40,7 +43,8 @@
   color: white;
   border-radius: 10px;
 }
-.form label {
+.form label,
+.formEnsamble label {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,4 +63,45 @@
   padding: 10px;
   border: 0;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+.profileForm .insideForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vw;
+  border-radius: 10px;
+  padding: 3vw;
+  width: 40%;
+  margin: 1.5vw;
+}
+.profileForm {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdeeca9;
+  border-radius: 10px;
+  padding: 3vw;
+  width: 40%;
+  margin: 1.5vw;
+  justify-content: center;
+}
+.profileForm input {
+  padding: 1rem;
+  width: 80%;
+}
+.profileForm input[type="submit"] {
+  background-color: #3d415e;
+  color: white;
+  border-radius: 10px;
+}
+.formEnsamble {
+  height: 70vh;
+  /* width: 80vw; */
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdeeca9;
+  border-radius: 10px;
+  padding: 3vw;
+  width: 100%;
+  margin: 1.5vw;
+  justify-content: center;
 }

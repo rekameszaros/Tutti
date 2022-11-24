@@ -9,6 +9,7 @@ function ProfileForm() {
   const [data, setData] = useState([]);
   const [userId, setID] = useState("");
   const tokenFromStorage = localStorage.getItem("token");
+  localStorage.setItem("user", JSON.stringify(data));
 
   useEffect(() => {
     const location = window.location.toString();
@@ -40,7 +41,6 @@ function ProfileForm() {
         setData(result);
       })
       .catch((err) => console.log("error"));
-    // console.log(data);
   };
 
   const saveUser = (newUser) => {
@@ -97,10 +97,10 @@ function ProfileForm() {
 
   return (
     <>
-      <div className={styles.form}>
+      <div className={styles.profileForm}>
         <h2>Hi {data.name}</h2>
         <p>Here you can update your profile information</p>
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.insideForm}>
           <label htmlFor="name">
             Name:
             <input type="text" name="name" id="name" defaultValue={data.name} />

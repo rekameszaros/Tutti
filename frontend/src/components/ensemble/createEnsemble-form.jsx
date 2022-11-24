@@ -14,7 +14,7 @@ function EnsambleCreate() {
       name: event.currentTarget.elements.name.value,
       shortDescription: event.currentTarget.elements.shortDescription.value,
       location: event.currentTarget.elements.location.value,
-      groupMember: event.currentTarget.elements.groupMember.value,
+      // groupMember: event.currentTarget.elements.groupMember.value,
     };
     console.log(ensamble);
     // use this for validation
@@ -41,8 +41,8 @@ function EnsambleCreate() {
     return res;
   }
   return (
-    <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
+    <div>
+      <form onSubmit={handleSubmit} className={styles.formEnsamble}>
         <label htmlFor="name">
           Name:
           <input type="text" name="name" id="name" />
@@ -55,10 +55,10 @@ function EnsambleCreate() {
           Location:
           <input type="text" name="location" id="location" />
         </label>
-        <label htmlFor="groupMember">
+        {/* <label htmlFor="groupMember">
           Group members:
           <input type="number" name="groupMember" id="groupMember" />
-        </label>
+        </label> */}
         <input type="submit" name="submit" id="submit" value="Submit" />
       </form>
       <MyModal showModal={showModal} text="Ensamble was created succesfully" closeModal={closeModal} />

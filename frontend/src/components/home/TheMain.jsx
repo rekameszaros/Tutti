@@ -6,9 +6,10 @@ import { useState } from "react";
 
 const url = "http://localhost:3005/ensamble";
 
+const names = [];
 export default function TheMain() {
   const [contacts, setContacts] = useState([]);
-
+  // const [names, setNames] = useState([]);
   // Using Promise chains
   useEffect(() => {
     // TODO: Activating the spinner
@@ -25,6 +26,13 @@ export default function TheMain() {
 
   useEffect(() => {
     console.log(contacts);
+    contacts.map((contact, index) => {
+      contact.User.map((myUser) => {
+        const name = myUser.name;
+        names.push(name);
+      });
+      console.log(names);
+    });
   }, [contacts]);
 
   // Using async/await
@@ -33,7 +41,6 @@ export default function TheMain() {
     async function getData() {
       const response = await fetch(url);
       const body = await response.json();
-      console.log("async/await", body);
     }
     getData();
   }, []);
@@ -43,7 +50,7 @@ export default function TheMain() {
       <div className={styles.split}>
         <div className={styles.cardLayout}>
           {contacts.map((contact, index) => {
-            return <BusinessCard key={"business-cards-" + index} headline={contact.name} location={contact.location} desc={contact.shortDescription} members={contact.groupMember} id = {contact._id}  />;
+            return <BusinessCard key={"business-cards-" + index} headline={contact.name} location={contact.location} desc={contact.shortDescription} members={names} id={contact._id} />;
           })}
         </div>
       </div>
