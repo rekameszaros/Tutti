@@ -1,4 +1,5 @@
 import styles from "./BusinessCard.module.css";
+import Button from "../button/button";
 
 const BusinessCard = ({headline, location, desc, members}) => {
     return (
@@ -7,7 +8,7 @@ const BusinessCard = ({headline, location, desc, members}) => {
             <p className={styles.name}>{location}</p>
             <p className={styles.instrument}>{desc}</p>
             <p className={styles.instrument}>{members}</p>
-
+            <Button text='lala'/>
         </div>
     );
 };

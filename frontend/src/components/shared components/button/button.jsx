@@ -1,7 +1,9 @@
-function Button() {
+import styles from "./button.module.css";
+
+function Button({text, ...buttonProps}) {
   return (
-    <button>
-      <p>Sign up</p>
+    <button className={styles.btn}{...buttonProps}>
+      {text}
     </button>
   );
 }
