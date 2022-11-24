@@ -60,8 +60,6 @@ export default function ThirdBox() {
           })}
         </div>
       </div>
-      <div className={"split"}>
-      </div>
     </main>
   );
 }
