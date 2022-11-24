@@ -41,7 +41,7 @@ const BusinessCard = ({ headline, location, desc, members, id }) => {
         );
       })}
 
-      <Button onClick={postUser} text="lala" />
+      <Button onClick={postUser} text="Join Ensemble" />
     </div>
   );
 };
