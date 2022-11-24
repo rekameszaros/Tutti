@@ -1,10 +1,15 @@
 import "./navigation.css";
 import { useState } from "react";
 
-
 export default function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const userId = localStorage.getItem("id");
+  const token = localStorage.getItem("token");
+  const logOut = () => {
+    console.log("I am logging out");
+    localStorage.clear();
+    window.location.replace("/login");
+  };
   return (
     <nav className="navigation">
       <a href="/" className="brand-name">
@@ -30,18 +35,28 @@ export default function Navbar() {
           <li>
             <a href="/signup">Sign Up</a>
           </li>
-          <li>
-            <a href="/login">Login</a>
-          </li>
-          <li>
-            <a href="/find">Find Ensemble</a>
-          </li>
-          <li>
-            <a href="/create">Create Ensemble</a>
-          </li>
-          <li>
-            <a href={"/profile?id=" + userId}>Profile</a>
-          </li>
+          {token && (
+            <li>
+              <a href="#" onClick={logOut}>
+                Log out
+              </a>
+            </li>
+          )}
+          {!token && (
+            <li>
+              <a href="/login">Log in</a>
+            </li>
+          )}
+          {token && (
+            <>
+              <li>
+                <a href="/create">Create Ensemble</a>
+              </li>
+              <li>
+                <a href={"/profile?id=" + userId}>Profile</a>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </nav>

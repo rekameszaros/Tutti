@@ -1,4 +1,14 @@
 .container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 3vw;
+  color: #bf1e2e;
+}
+
+.container h1 {
+  width: 40vw;
+  max-width: 50vw;
+  line-height: 1em;
+  font-size: 2.5rem;
 }

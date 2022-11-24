@@ -1,6 +1,7 @@
 import Navigation from "../components/navigation/navigation";
 import TheMain from "../components/home/TheMain";
 import Banner from "../components/home/Banner";
+import styles from "./css-modules/home.module.css";
 
 export default function Home() {
   return (

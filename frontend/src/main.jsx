@@ -27,10 +27,10 @@ const router = createBrowserRouter([
     path: "create",
     element: <CreateEnsemble />,
   },
-  {
-    path: "find",
-    element: <FindEnsemble />,
-  },
+  // {
+  //   path: "find",
+  //   element: <FindEnsemble />,
+  // },
   {
     path: "/profile",
     element: <Profile />,
@@ -41,4 +41,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
-
