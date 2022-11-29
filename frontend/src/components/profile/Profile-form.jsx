@@ -3,12 +3,18 @@ import styles from "../css-modules/form.module.css";
 import Select from "react-select";
 import { useEffect } from "react";
 import Button from "./../shared components/button/button";
+import MyModal from "../Modal";
+
 // import { Navigate, useNavigate } from "react-router-dom";
 function ProfileForm() {
   const url = "http://localhost:3005/";
   const [data, setData] = useState([]);
   const [userId, setID] = useState("");
   const tokenFromStorage = localStorage.getItem("token");
+  const [showModal, setShowModal] = useState(false);
+  const closeModal = () => {
+    setShowModal(false);
+  };
   localStorage.setItem("user", JSON.stringify(data));
 
   useEffect(() => {
@@ -53,7 +59,13 @@ function ProfileForm() {
       body: JSON.stringify(newUser),
     })
       .then((res) => res.json())
-      .then((result) => setData(result))
+      .then((result) => {
+        setData(result);
+        setShowModal(true);
+        setTimeout(() => {
+          window.location.replace("/profile?id=" + userId);
+        }, 3000);
+      })
       .catch((err) => console.log("error"));
   };
 
@@ -121,6 +133,7 @@ function ProfileForm() {
           <Button onClick={deleteAcc} text={"Delete account"} />
           <Button onClick={logOut} text={"Log out"} />
         </div>
+        <MyModal showModal={showModal} text="User has been updated succesfully" closeModal={closeModal} />
       </div>
     </>
   );
