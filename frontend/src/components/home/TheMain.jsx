@@ -20,6 +20,7 @@ export default function TheMain() {
         // console.log("promise chains", body);
         const asArray = transformToArray(body);
         setContacts(asArray);
+        console.log(asArray);
         // TODO: Hide the spinner.
       });
   }, []);
@@ -50,7 +51,7 @@ export default function TheMain() {
       <div className={styles.split}>
         <div className={styles.cardLayout}>
           {contacts.map((contact, index) => {
-            return <BusinessCard key={"business-cards-" + index} headline={contact.name} location={contact.location} desc={contact.shortDescription} members={names} id={contact._id} />;
+            return <BusinessCard key={"business-cards-" + index} ensemble={contact} />;
           })}
         </div>
       </div>
