@@ -2,13 +2,14 @@ import styles from "./BusinessCard.module.css";
 import Button from "../button/button";
 import { useEffect, useState } from "react";
 
-const BusinessCard = ({ headline, location, desc, members, id }) => {
+const BusinessCard = ({ ensemble }) => {
   const url = "http://localhost:3005/";
   const [myId, setId] = useState();
   useEffect(() => {
-    setId(id);
+    setId(ensemble.id);
   }, [setId]);
 
+  console.log(ensemble.User);
   const postUser = () => {
     const userFromStorage = localStorage.getItem("user");
     fetch(url + "ensamble/" + myId + "/users", {
@@ -30,13 +31,13 @@ const BusinessCard = ({ headline, location, desc, members, id }) => {
 
   return (
     <div className={styles.card}>
-      <p className={styles.headline}>{headline}</p>
-      <p className={styles.name}>{location}</p>
-      <p className={styles.instrument}>{desc}</p>
-      {members.map((member, index) => {
+      <p className={styles.headline}>{ensemble.headline}</p>
+      <p className={styles.name}>{ensemble.location}</p>
+      <p className={styles.instrument}>{ensemble.desc}</p>
+      {ensemble.User.map((member, index) => {
         return (
           <p key={"member" + index} className={styles.instrument}>
-            {member}
+            {member.name}
           </p>
         );
       })}
