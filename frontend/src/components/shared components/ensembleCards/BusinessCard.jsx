@@ -6,7 +6,7 @@ const BusinessCard = ({ ensemble }) => {
   const url = "http://localhost:3005/";
   const [myId, setId] = useState();
   useEffect(() => {
-    setId(ensemble.id);
+    setId(ensemble._id);
   }, [setId]);
 
   console.log(ensemble.User);
