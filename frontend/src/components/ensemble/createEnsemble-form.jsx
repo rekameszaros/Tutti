@@ -1,5 +1,5 @@
 import styles from "../css-modules/form.module.css";
-import MyModal from "../Modal";
+import MyModal from "../shared components/Modal";
 import { useState } from "react";
 
 function EnsambleCreate() {

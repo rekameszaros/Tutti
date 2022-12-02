@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styles from "../css-modules/form.module.css";
-import MyModal from "../Modal";
+import MyModal from "../shared components/Modal";
 
 export default function LogInForm() {
   const url = "http://localhost:3005/";
@@ -56,6 +56,7 @@ export default function LogInForm() {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form} id="myForm">
+        <h2>Log in to your account</h2>
         <label htmlFor="email">
           Email:
           <input type="email" name="email" id="email" defaultValue={user.email} />

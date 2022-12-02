@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import styles from "./css-modules/modal.module.css";
+import styles from "../css-modules/modal.module.css";
 
 export default function MyModal({ showModal, text, closeModal }) {
   Modal.setAppElement();

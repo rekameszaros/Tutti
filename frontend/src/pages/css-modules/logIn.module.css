@@ -1,5 +1,40 @@
 .pageWrap {
   display: flex;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+  align-items: center;
+  color: #353a5d;
+  height: 90vh;
+}
+.pageWrap form {
+  height: 60vh;
+}
+.justFlex {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  /* padding-top: 5vw; */
+  align-items: center;
+  width: 40%;
+}
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 10%;
+  padding: 3vw;
+  border-bottom: 5px solid #353a5d;
+  row-gap: 2rem;
+}
+.flexContainer img {
+  width: 70%;
+}
+.goToSignUp {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  padding: 3vw;
+  font-size: 1.5em;
+  align-items: center;
 }

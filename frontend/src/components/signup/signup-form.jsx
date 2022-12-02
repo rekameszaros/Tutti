@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../css-modules/form.module.css";
 import Select from "react-select";
-import MyModal from "../Modal";
+import MyModal from "../shared components/Modal";
 
 import { Navigate, useNavigate } from "react-router-dom";
 function SignUpForm() {

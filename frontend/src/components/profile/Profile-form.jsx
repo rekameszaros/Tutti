@@ -3,7 +3,7 @@ import styles from "../css-modules/form.module.css";
 import Select from "react-select";
 import { useEffect } from "react";
 import Button from "./../shared components/button/button";
-import MyModal from "../Modal";
+import MyModal from "../shared components/Modal";
 
 // import { Navigate, useNavigate } from "react-router-dom";
 function ProfileForm() {
@@ -130,7 +130,7 @@ function ProfileForm() {
           <input type="submit" name="submit" id="submit" value="Update" />
         </form>
         <div className={styles.flex}>
-          <Button onClick={deleteAcc} text={"Delete account"} />
+          <Button onClick={deleteAcc} text={"Delete account"} style={style.btn} />
           <Button onClick={logOut} text={"Log out"} />
         </div>
         <MyModal showModal={showModal} text="User has been updated succesfully" closeModal={closeModal} />
