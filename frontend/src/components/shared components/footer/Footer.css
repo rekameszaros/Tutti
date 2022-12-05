@@ -9,11 +9,11 @@ body {
   }
   
   footer {
-   
-    background-color: gray;
+    background-color: #bf1e2e;
+    color: #ffff;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 8px;
+    padding: 40px 16px 0px;
     text-align: center;
   }
