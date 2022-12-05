@@ -1,5 +1,6 @@
 import styles from "../css-modules/form.module.css";
 import MyModal from "../Modal";
+import Select from "react-select";
 import { useState } from "react";
 
 function EnsambleCreate() {
@@ -8,6 +9,15 @@ function EnsambleCreate() {
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const options = [
+    { value: "region hovedstaden", label: "Region Hovedstaden" },
+    { value: "region midtjylland", label: "Region Midtjylland" },
+    { value: "region nordjylland", label: "Region Nordjylland" },
+    { value: "region sjælland", label: "Region Sjælland" },
+    { value: "region syddanmark", label: "Region Syddanmark " },
+  ];
+
   async function handleSubmit(event) {
     event.preventDefault();
     const ensamble = {
@@ -51,10 +61,7 @@ function EnsambleCreate() {
           Short description:
           <input type="text " name="shortDescription" id="shortDescription" />
         </label>
-        <label htmlFor="location">
-          Location:
-          <input type="text" name="location" id="location" />
-        </label>
+        <Select options={options} name="location" id="location" placeholder="Select location" />
         {/* <label htmlFor="groupMember">
           Group members:
           <input type="number" name="groupMember" id="groupMember" />
