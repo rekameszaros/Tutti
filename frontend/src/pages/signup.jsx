@@ -1,6 +1,7 @@
 import SignUpForm from "../components/signup/Signup-form";
 import Navigation from "../components/navigation/Navigation";
 import styles from "../pages/css-modules/signUp.module.css";
+import Footer from "../components/shared components/footer/Footer";
 
 function SignUp() {
   return (

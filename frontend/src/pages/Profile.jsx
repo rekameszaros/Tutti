@@ -1,7 +1,7 @@
 import ProfileForm from "../components/profile/Profile-form";
 import Navigation from "../components/navigation/Navigation";
 import styles from "../pages/css-modules/profile.module.css";
-
+import Footer from "../components/shared components/footer/Footer";
 function Profile() {
   return (
     <div className="SignUp" id="outer-container">

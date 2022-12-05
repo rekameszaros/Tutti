@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+.App {
+    font-family: sans-serif;
+    min-height: 100vh;
+  }
+  
+  footer {
+   
+    background-color: gray;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    text-align: center;
+  }

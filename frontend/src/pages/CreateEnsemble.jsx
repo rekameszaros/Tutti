@@ -1,6 +1,7 @@
 import EnsambleCreate from "../components/ensemble/createEnsemble-form";
 import Navigation from "../components/navigation/Navigation";
 import styles from "../pages/css-modules/signUp.module.css";
+import Footer from "../components/shared components/footer/Footer";
 
 function CreateEnsemble() {
   return (
