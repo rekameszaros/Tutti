@@ -11,11 +11,14 @@ function EnsambleCreate() {
   };
 
   const options = [
-    { value: "region hovedstaden", label: "Region Hovedstaden" },
-    { value: "region midtjylland", label: "Region Midtjylland" },
-    { value: "region nordjylland", label: "Region Nordjylland" },
-    { value: "region sjælland", label: "Region Sjælland" },
-    { value: "region syddanmark", label: "Region Syddanmark " },
+    { value: "indre by", label: "Indre By" },
+    { value: "vesterbro/kongens enghave", label: "Vesterbro/Kongens Enghave" },
+    { value: "nørrebro", label: "Nørrebro" },
+    { value: "østerbro", label: "Østerbro" },
+    { value: "amager øst", label: "Amager Øst" },
+    { value: "amager vest", label: "Amager Vest" },
+    { value: "bispebjerg", label: "Bispebjerg" },
+    { value: "vanløse", label: "Vanløse" },
   ];
 
   async function handleSubmit(event) {
