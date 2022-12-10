@@ -3,12 +3,18 @@ import BusinessCard from "../shared components/ensembleCards/BusinessCard.jsx";
 import { useEffect } from "react";
 import { transformToArray } from "../utils/toArray";
 import { useState } from "react";
+import ReactCardFlip from 'react-card-flip';
+import Button from "../shared components/button/button";
+import Card from "../shared components/ensembleCards/CardBack.jsx"
 
 const url = "http://localhost:3005/ensamble";
 
 
 export default function TheMain() {
   const [contacts, setContacts] = useState([]);
+  const [isFlipped, setFlipped] = useState(false)
+  
+
   // const [names, setNames] = useState([]);
   // Using Promise chains
   useEffect(() => {
@@ -36,12 +42,37 @@ export default function TheMain() {
     getData();
   }, []);
 
+  const showBack = () => {
+    setFlipped(true)
+  }
+
+  const showFront = () => {
+    setFlipped(false)
+  }
+
+
   return (
     <main className={styles.main}>
       <div className={styles.split}>
         <div className={styles.cardLayout}>
           {contacts.map((contact, index) => {
-            return <BusinessCard key={"business-cards-" + index} ensemble={contact} />;
+
+            return (
+              <>
+              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+              
+              {/*The front side of the card.*/}
+              <div>
+                <BusinessCard key={"business-cards-" + index} ensemble={contact}  />
+                <Button onClick={showBack} text="Show Details"></Button>
+              </div>
+              <div>
+                <Card ensemble={contact} />
+                <Button onClick={showFront} text="Show Details"></Button>
+              </div>
+              </ReactCardFlip>
+              </>
+            );
           })}
         </div>
       </div>

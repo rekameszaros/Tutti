@@ -1,15 +1,21 @@
-import styles from "./BusinessCard.module.css";
+import styles from "./Card.module.css";
 import Button from "../button/button";
 import { useEffect, useState } from "react";
+
+
 
 const BusinessCard = ({ ensemble }) => {
   const url = "http://localhost:3005/";
   const token = localStorage.getItem("token");
-
   const [myId, setId] = useState();
   useEffect(() => {
     setId(ensemble._id);
   }, [setId]);
+
+
+
+
+
 
   console.log(ensemble.User);
   const postUser = () => {
@@ -26,17 +32,19 @@ const BusinessCard = ({ ensemble }) => {
       .then((result) => setData(result))
       .catch((err) => console.log("error"));
   };
+  
 
   //   {contacts.map((contact, index) => {
   //     return <BusinessCard key={"business-cards-" + index} headline={contact.name} location={contact.location} desc={contact.shortDescription} members={names} id= {contact._id}  />;
   //   })}
 
   return (
-    <div className={styles.card}>
+    
+      
+ <div className={styles.card}>
       <div>
         <p className={styles.headline}>{ensemble.name}</p>
         <p className={styles.name}>{ensemble.location}</p>
-        <p className={styles.instrument}>{ensemble.desc}</p>
       </div>
       <div>
         <h3 className={styles.headline1}>Ensemble members:</h3>
@@ -52,6 +60,12 @@ const BusinessCard = ({ ensemble }) => {
         {token && <Button onClick={postUser} text="Join Ensemble" />}
       </div>
     </div>
+
+   
+
+       
+   
+    
   );
 };
 
