@@ -1,6 +1,7 @@
 import styles from "../css-modules/form.module.css";
 import MyModal from "../shared components/Modal";
 import { useState } from "react";
+import Style from "../css-modules/forumInputs.module.css";
 
 function EnsambleCreate() {
   const url = "http://localhost:3005/";
@@ -66,8 +67,8 @@ function EnsambleCreate() {
     return res;
   }
   return (
-    <div>
-      <form onSubmit={handleSubmit} className={styles.formEnsamble}>
+    <div className={Style.formInput}>
+      <form  onSubmit={handleSubmit} className= "{styles.app} {Style.formInput} ">
         <label htmlFor="name">
           Name:
           <input type="text" name="name" id="name" />
