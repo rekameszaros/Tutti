@@ -25,7 +25,10 @@ export class EnsambleController {
 
   // Users
   @Post(':id/users')
-  addUsers(@Param('id') id: string, @Body() User: UserDto): Promise<Ensamble> {
-    return this.ensambleService.addUsers(id, User);
+  addUsers(@Param('id') id: string, @Body() User: UserDto) {
+    return {
+      user: this.ensambleService.addUsers(id, User),
+      statusCOde: 201,
+    };
   }
 }

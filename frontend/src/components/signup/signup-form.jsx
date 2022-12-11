@@ -60,6 +60,7 @@ function SignUpForm() {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
+        <h2>Sign up as a new member</h2>
         <label htmlFor="name">
           Name:
           <input type="text" name="name" id="name" defaultValue={user.name} />

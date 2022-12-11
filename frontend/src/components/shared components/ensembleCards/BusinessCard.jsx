@@ -23,7 +23,14 @@ const BusinessCard = ({ ensemble }) => {
       body: userFromStorage,
     })
       .then((res) => res.json())
-      .then((result) => setData(result))
+      .then((result) => {
+        setData(result.user);
+        if (result.statusCode === 201) {
+          console.log("succeded");
+        } else {
+          console.log("could not post");
+        }
+      })
       .catch((err) => console.log("error"));
   };
 
@@ -35,6 +42,7 @@ const BusinessCard = ({ ensemble }) => {
     <div className={styles.card}>
       <div>
         <p className={styles.headline}>{ensemble.name}</p>
+        <p className={styles.name}>Created by: {ensemble.createdBy.name}</p>
         <p className={styles.name}>{ensemble.location}</p>
         <p className={styles.instrument}>{ensemble.desc}</p>
       </div>

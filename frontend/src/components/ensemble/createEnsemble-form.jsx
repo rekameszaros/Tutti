@@ -5,12 +5,17 @@ import { useState } from "react";
 function EnsambleCreate() {
   const url = "http://localhost:3005/";
   const [showModal, setShowModal] = useState(false);
+  const userFromStorage = localStorage.getItem("user");
+  // console.log(userStorage);
   const closeModal = () => {
     setShowModal(false);
   };
   async function handleSubmit(event) {
+    console.log(event);
+    console.log(JSON.parse(userFromStorage)._id);
     event.preventDefault();
     const ensamble = {
+      createdBy: userFromStorage,
       name: event.currentTarget.elements.name.value,
       shortDescription: event.currentTarget.elements.shortDescription.value,
       location: event.currentTarget.elements.location.value,
@@ -21,6 +26,26 @@ function EnsambleCreate() {
     const response = await postEnsamble(ensamble);
     console.log(response);
   }
+  // async function getLoggedUser(user) {
+  //   const response = await fetch(url + "ensamble", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     mode: "cors",
+  //     body: userFromStorage,
+  //   });
+  //   const res = await response.json();
+  //   // console.log(res);
+  //   // if (res.statusCode === 201) {
+  //   //   setShowModal(true);
+  //   //   setTimeout(() => {
+  //   //     window.location.replace("/");
+  //   //   }, 1000000);
+  //   // }
+  //   console.log(res);
+  //   return res;
+  // }
   async function postEnsamble(ensamble) {
     const response = await fetch(url + "ensamble", {
       method: "POST",
@@ -36,7 +61,7 @@ function EnsambleCreate() {
       setShowModal(true);
       setTimeout(() => {
         window.location.replace("/");
-      }, 3000);
+      }, 1000000);
     }
     return res;
   }

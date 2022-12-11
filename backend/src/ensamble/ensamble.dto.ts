@@ -5,6 +5,9 @@ import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export class EnsambleDto {
   @IsNotEmpty()
+  createdBy: Object;
+
+  @IsNotEmpty()
   name: string;
 
   @IsNotEmpty()
@@ -17,14 +20,14 @@ export class EnsambleDto {
   User: User[];
 
   constructor(
+    createdBy: string,
     name: string,
-
     location: string,
     shortDescription: string,
     User: User[],
   ) {
+    this.createdBy = createdBy;
     this.name = name;
-
     this.location = location;
     this.shortDescription = shortDescription;
     this.User = User;

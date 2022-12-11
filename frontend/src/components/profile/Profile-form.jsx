@@ -84,33 +84,10 @@ function ProfileForm() {
     saveUser(newUser);
   };
 
-  const deleteAcc = () => {
-    fetch(url + "user/" + userId, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${tokenFromStorage}`,
-      },
-    })
-      .then((res) => {
-        res.json();
-        if (res) {
-          window.location.replace("/signup");
-        }
-      })
-      .catch((err) => console.log("error"));
-  };
-
-  const logOut = () => {
-    console.log("I am logging out");
-    localStorage.clear();
-    window.location.replace("/login");
-  };
-
   return (
     <>
       <div className={styles.profileForm}>
-        <h2>Hi {data.name}</h2>
+        {/* <h2>Profile page of {data.name}</h2> */}
         <p>Here you can update your profile information</p>
         <form onSubmit={handleSubmit} className={styles.insideForm}>
           <label htmlFor="name">
@@ -121,18 +98,9 @@ function ProfileForm() {
             Email:
             <input type="email" name="email" id="email" defaultValue={data.email} />
           </label>
-          {/* <label htmlFor="password">
-            Password:
-            <input type="password" name="password" id="password" defaultValue={data.password} />
-          </label> */}
-
           <Select options={options} name="instrument" id="instrument" defaultValue={data.instrument} placeholder={data.instrument} />
           <input type="submit" name="submit" id="submit" value="Update" />
         </form>
-        <div className={styles.flex}>
-          <Button onClick={deleteAcc} text={"Delete account"} style={style.btn} />
-          <Button onClick={logOut} text={"Log out"} />
-        </div>
         <MyModal showModal={showModal} text="User has been updated succesfully" closeModal={closeModal} />
       </div>
     </>
