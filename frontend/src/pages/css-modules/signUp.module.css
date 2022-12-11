@@ -1,5 +1,34 @@
 .pageWrap {
   display: flex;
-  justify-content: center;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  color: #353a5d;
+  height: 90vh;
+  align-items: center;
+
   /* padding-top: 8vw; */
+}
+
+.pageWrap form {
+  height: 70vh;
+  padding: 1rem;
+}
+.pageWrap form > * {
+  padding: 1rem;
+}
+.justFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  row-gap: 2em;
+}
+
+.listItem {
+  display: flex;
+  column-gap: 1em;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  align-items: center;
 }

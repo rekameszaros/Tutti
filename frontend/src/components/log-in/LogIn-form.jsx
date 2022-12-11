@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styles from "../css-modules/form.module.css";
-import MyModal from "../Modal";
+import MyModal from "../shared components/Modal";
+import FormInput from "../signup/ForumInput";
 
 export default function LogInForm() {
   const url = "http://localhost:3005/";
@@ -10,14 +11,54 @@ export default function LogInForm() {
   const closeModal = () => {
     setShowModal(false);
   };
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  const inputs = [
+    {
+      id: 1,
+      name: "email",
+      type: "email",
+      placeholder: "Email",
+      errorMessage: "It should be a valid email address!",
+      label: "Email",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "password",
+      type: "password",
+      placeholder: "Password",
+      errorMessage: "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+      label: "Password",
+      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+      required: true,
+    },
+   
+  ];
+
+  const onSwitch = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+
+
   async function handleSubmit(event) {
     event.preventDefault();
     let logUser = {};
     console.log(event);
     logUser = {
-      username: event.currentTarget.elements.email.value,
-      password: event.currentTarget.elements.password.value,
+      username: event.target[0].value,
+      password: event.target[1].value,
     };
+
+    const checkInfo = (e) => {
+      e.preventDefault();
+    };
+    checkInfo(event);
+
 
     // console.log(user);
 
@@ -55,17 +96,18 @@ export default function LogInForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className={styles.form} id="myForm">
-        <label htmlFor="email">
-          Email:
-          <input type="email" name="email" id="email" defaultValue={user.email} />
-        </label>
-        <label htmlFor="password">
-          Password:
-          <input type="password" name="password" id="password" defaultValue={user.password} />
-        </label>
-        <input type="submit" name="submit" id="submit" value="Log in" />
-      </form>
+
+
+
+<div className={styles.app}>
+        <form onSubmit={handleSubmit}  id="myForm">
+          <h1>Log In</h1>
+          {inputs.map((input) => (
+            <FormInput key={input.id} {...input} value={values[input.name]} onChange={onSwitch} />
+          ))}
+           <input type="submit" name="submit" id="submit" value="Log in" />
+        </form>
+      </div>
       <MyModal showModal={showModal} text="User has been logged in succesfully" closeModal={closeModal} />
     </>
   );

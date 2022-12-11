@@ -1,7 +1,6 @@
 import Modal from "react-modal";
-import styles from "./css-modules/modal.module.css";
-
-export default function MyModal({ showModal, text, closeModal }) {
+import ProfileForm from "./Profile-form";
+export default function ProfileModal({ showModal, closeModal }) {
   Modal.setAppElement();
   return (
     <Modal
@@ -10,6 +9,7 @@ export default function MyModal({ showModal, text, closeModal }) {
           backgroundColor: "#777777",
           display: "flex",
           justifyContent: "center",
+          width: "100%",
         },
         content: {
           display: "flex",
@@ -21,12 +21,13 @@ export default function MyModal({ showModal, text, closeModal }) {
           left: "15%",
         },
       }}
-      portalClassName={styles.modal}
+      //   portalClassName={styles.modal}
       isOpen={showModal}
       ariaHideApp={false}
       onRequestClose={closeModal}
     >
-      <h1>{text}</h1>
+      {/* <h1>{text}</h1> */}
+      <ProfileForm />
     </Modal>
   );
 }

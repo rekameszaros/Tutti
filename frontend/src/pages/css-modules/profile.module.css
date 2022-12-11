@@ -1,4 +1,27 @@
 .pageWrap {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.userCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #dcdeeca9;
+  padding: 3rem;
+  row-gap: 1em;
+  border-radius: 20px;
+  margin: 50px;
+  width: 30%;
+}
+.cardLine {
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+}
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  width: 30%;
 }
