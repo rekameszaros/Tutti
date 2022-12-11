@@ -14,6 +14,7 @@ import { UserDto } from './user.dto';
 import { ObjectId } from 'mongoose';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { UseGuards, Request } from '@nestjs/common';
+import { EnsambleDto } from 'src/ensamble/ensamble.dto';
 
 @Controller('user')
 export class UserController {
@@ -24,6 +25,7 @@ export class UserController {
 
   @Get(':id')
   getOneUser(@Param('id') id: string) {
+    // this.userService.addEnsambles(id, Ensamble);
     return this.userService.getOneUser(id);
   }
 
@@ -38,6 +40,14 @@ export class UserController {
   createUser(@Body() userDto: UserDto, @Request() req) {
     return {
       user: this.userService.createUser(userDto),
+      statusCode: 201,
+    };
+  }
+
+  @Post(':id/ensambles')
+  addEnsambles(@Param('id') id: string, @Body() Ensamble: EnsambleDto) {
+    return {
+      ensamble: this.userService.addEnsambles(id, Ensamble),
       statusCode: 201,
     };
   }

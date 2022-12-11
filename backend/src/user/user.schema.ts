@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { Ensamble } from 'src/ensamble/ensamble.schema';
 
 export type UserDocument = User & Document;
 
@@ -16,6 +17,9 @@ export class User {
 
   @Prop({ required: true })
   instrument: string;
+
+  @Prop([Ensamble])
+  Ensambles: Ensamble[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

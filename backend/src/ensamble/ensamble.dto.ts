@@ -16,7 +16,7 @@ export class EnsambleDto {
   @IsNotEmpty()
   shortDescription: string;
 
-  @IsNotEmpty()
+  // @IsNotEmpty()
   User: User[];
 
   constructor(
