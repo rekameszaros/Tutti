@@ -1,6 +1,8 @@
 import styles from "./Card.module.css";
 import Button from "../button/button";
 import { useEffect, useState } from "react";
+import ReactCardFlip from 'react-card-flip';
+import Card from "./CardBack";
 
 
 
@@ -11,6 +13,18 @@ const BusinessCard = ({ ensemble }) => {
   useEffect(() => {
     setId(ensemble._id);
   }, [setId]);
+
+
+
+  const [isFlipped, setFlipped] = useState(false)
+  
+  const showBack = () => {
+    setFlipped(true)
+  }
+
+  const showFront = () => {
+    setFlipped(false)
+  }
 
 
 
@@ -42,7 +56,9 @@ const BusinessCard = ({ ensemble }) => {
     
       
  <div className={styles.card}>
-      <div>
+   <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+<div>
+<div>
         <p className={styles.headline}>{ensemble.name}</p>
         <p className={styles.name}>{ensemble.location}</p>
       </div>
@@ -58,7 +74,21 @@ const BusinessCard = ({ ensemble }) => {
           })}
         </div>
         {token && <Button onClick={postUser} text="Join Ensemble" />}
+        <Button onClick={showBack} text="Show Details"></Button>
       </div>
+</div>
+     
+   
+      <div >
+      <div>
+        <div>
+          <p className={styles.instrument}>{ensemble.shortDescription}</p>
+          <Button onClick={showFront} text="Show Details"></Button> 
+        </div>
+      </div>
+    </div>
+                
+      </ReactCardFlip>
     </div>
 
    

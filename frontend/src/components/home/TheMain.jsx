@@ -12,7 +12,7 @@ const url = "http://localhost:3005/ensamble";
 
 export default function TheMain() {
   const [contacts, setContacts] = useState([]);
-  const [isFlipped, setFlipped] = useState(false)
+  // const [isFlipped, setFlipped] = useState(false)
   
 
   // const [names, setNames] = useState([]);
@@ -42,13 +42,13 @@ export default function TheMain() {
     getData();
   }, []);
 
-  const showBack = () => {
-    setFlipped(true)
-  }
+  // const showBack = () => {
+  //   setFlipped(true)
+  // }
 
-  const showFront = () => {
-    setFlipped(false)
-  }
+  // const showFront = () => {
+  //   setFlipped(false)
+  // }
 
 
   return (
@@ -59,18 +59,14 @@ export default function TheMain() {
 
             return (
               <>
-              <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+              {/* <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal"> */}
               
               {/*The front side of the card.*/}
               <div>
                 <BusinessCard key={"business-cards-" + index} ensemble={contact}  />
-                <Button onClick={showBack} text="Show Details"></Button>
+                {/* <Button onClick={showBack} text="Show Details"></Button> */}
               </div>
-              <div>
-                <Card ensemble={contact} />
-                <Button onClick={showFront} text="Show Details"></Button>
-              </div>
-              </ReactCardFlip>
+              
               </>
             );
           })}
