@@ -63,21 +63,19 @@ function SignUpForm() {
       required: true,
     },
   ];
-  //   const checkInfo = (e) => {
-  //   e.preventDefault();
-  // };
+
 
   const onSwitch = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
 
-  // const options = [
-  //   { value: "piano", label: "Piano" },
-  //   { value: "guitar", label: "Guitar" },
-  //   { value: "cello", label: "Cello" },
-  //   { value: "violin", label: "Violin" },
-  // ];
+  const options = [
+    { value: "piano", label: "Piano" },
+    { value: "guitar", label: "Guitar" },
+    { value: "cello", label: "Cello" },
+    { value: "violin", label: "Violin" },
+  ];
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -96,7 +94,7 @@ function SignUpForm() {
       email:event.target[1].value,
       password: event.target[2].value,
       confirmPassword: event.target[3].value,
-      // instrument: event.currentTarget.elements.instrument.value,
+      instrument: event.currentTarget.elements.instrument.value,
     };
     const response = await postUser(newUser);
   }
@@ -137,6 +135,7 @@ function SignUpForm() {
             onChange={onSwitch}
           />
         ))}
+        <Select options={options} name="instrument" id="instrument" defaultValue={user.instument}/>
         <input type="submit" id="submit" value="Submit"/>
        
        </form>
