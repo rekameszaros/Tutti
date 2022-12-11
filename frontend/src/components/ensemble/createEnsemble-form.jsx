@@ -1,6 +1,5 @@
 import styles from "../css-modules/form.module.css";
 import MyModal from "../shared components/Modal";
-import Select from "react-select";
 import { useState } from "react";
 import Style from "../css-modules/forumInputs.module.css";
 
