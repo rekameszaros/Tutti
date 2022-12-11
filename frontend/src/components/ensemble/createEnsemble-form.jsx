@@ -15,7 +15,7 @@ function EnsambleCreate() {
     console.log(JSON.parse(userFromStorage)._id);
     event.preventDefault();
     const ensamble = {
-      createdBy: userFromStorage,
+      createdBy: JSON.parse(userFromStorage),
       name: event.currentTarget.elements.name.value,
       shortDescription: event.currentTarget.elements.shortDescription.value,
       location: event.currentTarget.elements.location.value,
@@ -61,7 +61,7 @@ function EnsambleCreate() {
       setShowModal(true);
       setTimeout(() => {
         window.location.replace("/");
-      }, 1000000);
+      }, 3000);
     }
     return res;
   }
