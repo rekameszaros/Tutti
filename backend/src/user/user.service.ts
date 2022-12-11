@@ -32,7 +32,7 @@ export class UserService {
     const newUser = {
       name: user.name,
       email: user.email,
-      instrument: user.instrument,
+      // instrument: user.instrument,
     };
     console.log(newUser);
     return this.userModel.findOneAndUpdate({ _id: id }, newUser);
