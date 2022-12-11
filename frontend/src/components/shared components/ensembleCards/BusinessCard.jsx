@@ -1,12 +1,20 @@
 import styles from "./BusinessCard.module.css";
 import Button from "../button/button";
 import { useEffect, useState } from "react";
+import MyModal from "../Modal";
 
 const BusinessCard = ({ ensemble }) => {
   const url = "http://localhost:3005/";
   const token = localStorage.getItem("token");
-
+  const [data, setData] = useState("");
   const [myId, setId] = useState();
+  const [showModal, setShowModal] = useState(false);
+  const [modalStatus, setModalStatus] = useState("");
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  // const [userArray, setUserArray] = useState([ensemble.User]);
+
   useEffect(() => {
     setId(ensemble._id);
   }, [setId]);
@@ -25,13 +33,23 @@ const BusinessCard = ({ ensemble }) => {
       .then((res) => res.json())
       .then((result) => {
         setData(result.user);
-        if (result.statusCode === 201) {
-          console.log("succeded");
+
+        // console.log(result)
+        if (result.statusCOde === 201) {
+          setShowModal(true);
+          setModalStatus("You have sucessfully joined the ensamble");
+          setTimeout(() => {
+            window.location.replace("/");
+          }, 3000);
         } else {
+          setModalStatus("Joining the ensamble failed");
           console.log("could not post");
+          setTimeout(() => {
+            window.location.replace("/");
+          }, 3000);
         }
       })
-      .catch((err) => console.log("error"));
+      .catch((err) => console.log(err));
   };
 
   //   {contacts.map((contact, index) => {
@@ -59,6 +77,7 @@ const BusinessCard = ({ ensemble }) => {
         </div>
         {token && <Button onClick={postUser} text="Join Ensemble" />}
       </div>
+      <MyModal showModal={showModal} text={modalStatus} closeModal={closeModal} />
     </div>
   );
 };
