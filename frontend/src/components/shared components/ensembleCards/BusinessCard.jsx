@@ -14,7 +14,7 @@ const BusinessCard = ({ ensemble }) => {
     setShowModal(false);
   };
   // const [userArray, setUserArray] = useState([ensemble.User]);
-
+  // lala
   useEffect(() => {
     setId(ensemble._id);
   }, [setId]);
