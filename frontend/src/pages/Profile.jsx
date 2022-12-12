@@ -141,7 +141,7 @@ function Profile() {
           {/* <ProfileForm /> */}
         </div>
         <div>
-          <h2 style={{ textAlign: "left", paddingTop: "3rem", color: "#353a5d" }}>All the ensambles you have created</h2>
+          <h2 style={{ textAlign: "left", paddingTop: "3rem", color: "#353a5d", paddingLeft: "5rem" }}>All the ensambles you have created</h2>
           <div className={styles.ensamblesContainer}>
             {ensambles !== null &&
               ensambles.map((ensamble, index) => {

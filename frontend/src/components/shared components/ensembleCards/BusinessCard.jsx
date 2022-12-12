@@ -18,6 +18,7 @@ const BusinessCard = ({ ensemble }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalStatus, setModalStatus] = useState("");
   const [data, setData] = useState("");
+  // const [createdBy, setCreatedBy] = null;
   const closeModal = () => {
     setShowModal(false);
   };
@@ -51,6 +52,7 @@ const BusinessCard = ({ ensemble }) => {
       .then((res) => res.json())
       .then((result) => {
         setData(result);
+        setCreatedBy(result.createdBy.name);
         if (result.statusCOde === 201) {
           setShowModal(true);
           setModalStatus("You have sucessfully joined the ensamble");
@@ -77,7 +79,8 @@ const BusinessCard = ({ ensemble }) => {
               <img src={notes} alt="Musical notes" />
               <p className={styles.headline}>{ensemble.name}</p>
             </div>
-            <p className={styles.name}>Created by: {ensemble.createdBy.name}</p>
+            {/* {createdBy !== null && <p className={styles.name}>Created by: {data.createdBy.name}</p>} */}
+
             <div style={{ display: "flex", columnGap: "0.2rem", paddingLeft: "0.5rem", paddingTop: "0.5rem" }}>
               <FontAwesomeIcon icon={faLocationPin} style={{ color: "#bf1e2e" }} />
               <p className={styles.name}>{ensemble.location}</p>
