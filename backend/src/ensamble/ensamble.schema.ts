@@ -19,7 +19,7 @@ export class Ensamble {
   @Prop({ required: true })
   shortDescription: string;
 
-  @Prop([User])
+  @Prop()
   User: User[];
 }
 

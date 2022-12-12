@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, ObjectId } from 'mongoose';
+import { EnsambleDto } from 'src/ensamble/ensamble.dto';
 import { encodePassword } from 'src/utils/bcrypt';
 import { UserDto } from './user.dto';
 import { User, UserDocument } from './user.schema';
@@ -22,7 +23,7 @@ export class UserService {
   }
 
   // get one user based on param id
-  getOneUser(id: string): Promise<User> {
+  async getOneUser(id: string): Promise<User> {
     console.log(this.userModel.findOne({ _id: id }).exec());
     return this.userModel.findOne({ _id: id }).exec();
   }
@@ -52,5 +53,11 @@ export class UserService {
   // this one is for the testing
   deleteMany(deleteCriteria: any) {
     return this.userModel.deleteMany(deleteCriteria);
+  }
+
+  async addEnsambles(id: string, ensamble: EnsambleDto) {
+    const updateUser = await this.userModel.findById(id);
+    updateUser.Ensambles.push(ensamble);
+    return updateUser.save();
   }
 }

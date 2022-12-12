@@ -7,6 +7,7 @@ function EnsambleCreate() {
   const url = "http://localhost:3005/";
   const [showModal, setShowModal] = useState(false);
   const userFromStorage = localStorage.getItem("user");
+  const idFromStorage = localStorage.getItem("id");
   // console.log(userStorage);
   const closeModal = () => {
     setShowModal(false);
@@ -17,7 +18,7 @@ function EnsambleCreate() {
     console.log(JSON.parse(userFromStorage)._id);
     event.preventDefault();
     const ensamble = {
-      createdBy: userFromStorage,
+      createdBy: JSON.parse(userFromStorage),
       name: event.currentTarget.elements.name.value,
       shortDescription: event.currentTarget.elements.shortDescription.value,
       location: event.currentTarget.elements.location.value,
@@ -60,6 +61,7 @@ function EnsambleCreate() {
     const res = await response.json();
     // console.log(res);
     if (res.statusCode === 201) {
+      postEnsmableToArray(ensamble);
       setShowModal(true);
       setTimeout(() => {
         window.location.replace("/");
@@ -67,6 +69,27 @@ function EnsambleCreate() {
     }
     return res;
   }
+
+  async function postEnsmableToArray(ensamble) {
+    const response = await fetch(url + "user/" + idFromStorage + "/ensambles", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+      body: JSON.stringify(ensamble),
+    });
+    const res = await response.json();
+    // console.log(res);
+    if (res.statusCode === 201) {
+      setShowModal(true);
+      setTimeout(() => {
+        window.location.replace("/");
+      }, 1000000);
+    }
+    return res;
+  }
+
   return (
     <div className={Style.formInput}>
     <form  onSubmit={handleSubmit} className= "{styles.app} {Style.formInput} ">

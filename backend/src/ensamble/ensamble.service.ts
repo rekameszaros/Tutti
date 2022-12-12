@@ -18,6 +18,7 @@ export class EnsambleService {
   createEnsamble(ensamble: EnsambleDto) {
     const savedEnsamble = new this.ensambleModel(ensamble);
     savedEnsamble.save();
+    // this;
     return savedEnsamble;
   }
 

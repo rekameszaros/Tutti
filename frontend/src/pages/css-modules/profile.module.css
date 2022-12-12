@@ -1,8 +1,16 @@
+.outerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .pageWrap {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 2px solid #4f5261a9;
+  width: 90%;
 }
 .userCard {
   display: flex;
@@ -24,4 +32,32 @@
   flex-direction: column;
   row-gap: 3rem;
   width: 30%;
+}
+.ensamblesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  padding: 3vw;
+}
+.card {
+  padding: 3vw;
+  background-color: white;
+  margin: 2vw;
+  border-radius: 10px;
+  color: #353a5d;
+  width: 250px;
+  border: 1px solid #898787;
+}
+.borderBottom {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #4f5261a9;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.location {
+  display: flex;
+  padding-top: 1rem;
+  align-items: baseline;
+  column-gap: 0.5em;
 }
