@@ -8,8 +8,8 @@ import EnsambleCreate from "../../ensemble/createEnsemble-form";
 import notes from "../../../assets/icons8-jazz.svg";
 import MyModal from "../Modal";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
 
 const BusinessCard = ({ ensemble }) => {
   const url = "http://localhost:3005/";
@@ -68,24 +68,20 @@ const BusinessCard = ({ ensemble }) => {
       .catch((err) => console.log(err));
   };
 
-  //   {contacts.map((contact, index) => {
-  //     return <BusinessCard key={"business-cards-" + index} headline={contact.name} location={contact.location} desc={contact.shortDescription} members={names} id= {contact._id}  />;
-  //   })}
-
   return (
     <div className={styles.card}>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "300px" }}>
           <div>
             <div>
               <img src={notes} alt="Musical notes" />
               <p className={styles.headline}>{ensemble.name}</p>
             </div>
-            <div>
-              {/* <FontAwesomeIcon icon={faLocationPin} /> */}
+            <p className={styles.name}>Created by: {ensemble.createdBy.name}</p>
+            <div style={{ display: "flex", columnGap: "0.2rem", paddingLeft: "0.5rem", paddingTop: "0.5rem" }}>
+              <FontAwesomeIcon icon={faLocationPin} style={{ color: "#bf1e2e" }} />
               <p className={styles.name}>{ensemble.location}</p>
             </div>
-            <p className={styles.name}>Created by: {ensemble.createdBy.name}</p>
           </div>
           <div>
             <h3 className={styles.headline1}>Ensemble members:</h3>
@@ -110,9 +106,10 @@ const BusinessCard = ({ ensemble }) => {
 
         <div>
           <div>
-            <div>
+            <div className={styles.backContainer}>
+              <h3 style={{ color: "#2c2f4b" }}>Description:</h3>
               <p className={styles.instrument}>{ensemble.shortDescription}</p>
-              <Button onClick={showFront} text="Show Details"></Button>
+              <Button onClick={showFront} text="Hide Details"></Button>
             </div>
           </div>
         </div>

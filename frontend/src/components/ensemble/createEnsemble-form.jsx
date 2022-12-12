@@ -65,7 +65,7 @@ function EnsambleCreate() {
       setShowModal(true);
       setTimeout(() => {
         window.location.replace("/");
-      }, 1000000);
+      }, 3000);
     }
     return res;
   }
@@ -85,7 +85,7 @@ function EnsambleCreate() {
       setShowModal(true);
       setTimeout(() => {
         window.location.replace("/");
-      }, 1000000);
+      }, 3000);
     }
     return res;
   }

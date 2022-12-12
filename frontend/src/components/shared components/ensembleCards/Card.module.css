@@ -1,5 +1,6 @@
 .card {
   width: 290px;
+  height: 300px;
   min-height: 165px;
   background-color: #fff;
   border-radius: 10px;
@@ -17,7 +18,7 @@
   font-weight: bold;
   text-decoration: none;
   color: #353a5d;
-  font-size: 16px;
+  font-size: 18px;
   margin-left: 0.5rem;
 }
 .headline1 {
@@ -37,6 +38,13 @@
   font-size: 14.4px;
   margin-left: 0.5rem;
 }
+.location {
+  font-family: Montserrat, Google;
+  text-decoration: none;
+  color: #8d8b8b;
+  font-size: 13px;
+  margin-left: 0.5rem;
+}
 
 .instrument {
   font-family: Montserrat, Google;
@@ -51,4 +59,14 @@
   font-size: 14.4px;
   display: flex;
   flex-wrap: wrap;
+}
+.backContainer {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-between;
+}
+.backContainer:nth-child(2) {
+  /* justify-self: center; */
+  width: 100%;
 }
