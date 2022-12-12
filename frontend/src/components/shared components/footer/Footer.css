@@ -15,7 +15,7 @@ footer {
   left: 0;
   right: 0;
   padding: 40px 16px 0px;
-  text-align: center;
+
   display: flex;
   flex-direction: column;
 }
@@ -32,11 +32,11 @@ footer div {
   align-items: center;
 }
 footer div div img {
-  width: 5vw;
-  height: 5vw;
+  width: 2vw;
+  height: 2vw;
 }
 
 footer div img {
-  width: 30vw;
-  height: 15vw;
+  width: 15vw;
+  height: 5vw;
 }

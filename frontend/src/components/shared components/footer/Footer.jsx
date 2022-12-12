@@ -19,7 +19,7 @@ const Footer = () => {
       <img src={notes} alt="Notes picture" />
       <img src={daos} alt="Daos picture" />
 </div>    
-      {`Copyright © Tutti ${year}`}
+    <p>{`Copyright © Tutti ${year}`}</p>  
       </footer>;
   };
 
