@@ -9,13 +9,13 @@
   /* padding-top: 8vw; */
 }
 
-.pageWrap form {
+/* .pageWrap form {
   height: 70vh;
   padding: 1rem;
 }
 .pageWrap form > * {
   padding: 1rem;
-}
+} */
 .justFlex {
   display: flex;
   flex-direction: column;

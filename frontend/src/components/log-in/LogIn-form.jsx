@@ -102,7 +102,7 @@ export default function LogInForm() {
           {inputs.map((input) => (
             <FormInput key={input.id} {...input} value={values[input.name]} onChange={onSwitch} />
           ))}
-          <input type="submit" name="submit" id="submit" value="Log in" />
+          <button type="submit" name="submit" id="submit" value="Log in">Log in</button>
         </form>
       </div>
       <MyModal showModal={showModal} text={modalStatus} closeModal={closeModal} />

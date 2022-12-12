@@ -97,19 +97,19 @@ function EnsambleCreate() {
           Name:
           <input type="text" name="name" id="name" />
         </label>
-        <label htmlFor="shortDescription">
-          Short description:
-          <input type="text " name="shortDescription" id="shortDescription" />
-        </label>
         <label htmlFor="location">
           Location:
           <input type="text" name="location" id="location" />
+        </label>
+        <label htmlFor="shortDescription">
+          Short description:
+          <input type="text " name="shortDescription" id="shortDescription" />
         </label>
         {/* <label htmlFor="groupMember">
         Group members:
         <input type="number" name="groupMember" id="groupMember" />
       </label> */}
-        <input type="submit" name="submit" id="submit" value="Submit" />
+      <button type="submit" name="submit" id="submit" value="Submit">Submit</button>
       </form>
       <MyModal showModal={showModal} text="Ensamble was created succesfully" closeModal={closeModal} />
     </div>

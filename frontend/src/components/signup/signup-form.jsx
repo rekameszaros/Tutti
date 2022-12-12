@@ -126,7 +126,7 @@ function SignUpForm() {
             <FormInput key={input.id} {...input} value={values[input.name]} onChange={onSwitch} />
           ))}
           <Select options={options} name="instrument" id="instrument" defaultValue={user.instument} />
-          <input type="submit" id="submit" value="Submit" />
+          <button type="submit" id="submit" value="Submit">Submit</button>
         </form>
       </div>
       <MyModal showModal={showModal} text="User has been signed up succesfully" closeModal={closeModal} />
