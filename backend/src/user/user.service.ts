@@ -23,7 +23,7 @@ export class UserService {
   }
 
   // get one user based on param id
-  getOneUser(id: string): Promise<User> {
+  async getOneUser(id: string): Promise<User> {
     console.log(this.userModel.findOne({ _id: id }).exec());
     return this.userModel.findOne({ _id: id }).exec();
   }
