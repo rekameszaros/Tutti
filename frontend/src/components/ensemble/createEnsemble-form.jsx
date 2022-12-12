@@ -18,7 +18,7 @@ function EnsambleCreate() {
     console.log(JSON.parse(userFromStorage)._id);
     event.preventDefault();
     const ensamble = {
-      createdBy: JSON.parse(userFromStorage),
+      createdBy: JSON.parse(userFromStorage.name),
       name: event.currentTarget.elements.name.value,
       shortDescription: event.currentTarget.elements.shortDescription.value,
       location: event.currentTarget.elements.location.value,
@@ -92,27 +92,27 @@ function EnsambleCreate() {
 
   return (
     <div className={Style.formInput}>
-    <form  onSubmit={handleSubmit} className= "{styles.app} {Style.formInput} ">
-      <label htmlFor="name">
-        Name:
-        <input type="text" name="name" id="name" />
-      </label>
-      <label htmlFor="shortDescription">
-        Short description:
-        <input type="text " name="shortDescription" id="shortDescription" />
-      </label>
-      <label htmlFor="location">
-        Location:
-        <input type="text" name="location" id="location" />
-      </label>
-      {/* <label htmlFor="groupMember">
+      <form onSubmit={handleSubmit} className="{styles.app} {Style.formInput} ">
+        <label htmlFor="name">
+          Name:
+          <input type="text" name="name" id="name" />
+        </label>
+        <label htmlFor="shortDescription">
+          Short description:
+          <input type="text " name="shortDescription" id="shortDescription" />
+        </label>
+        <label htmlFor="location">
+          Location:
+          <input type="text" name="location" id="location" />
+        </label>
+        {/* <label htmlFor="groupMember">
         Group members:
         <input type="number" name="groupMember" id="groupMember" />
       </label> */}
-      <input type="submit" name="submit" id="submit" value="Submit" />
-    </form>
-    <MyModal showModal={showModal} text="Ensamble was created succesfully" closeModal={closeModal} />
-  </div>  
+        <input type="submit" name="submit" id="submit" value="Submit" />
+      </form>
+      <MyModal showModal={showModal} text="Ensamble was created succesfully" closeModal={closeModal} />
+    </div>
   );
 }
 
