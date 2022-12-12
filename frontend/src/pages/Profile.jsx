@@ -111,44 +111,47 @@ function Profile() {
     window.location.replace("/login");
   };
   return (
-    <div className={styles.outerContainer} id="outer-container">
-      <Navigation pageWrapID={"page-wrap"} outerContainerId={"outer-container"} />
-      <div id="page-wrap" className={styles.pageWrap}>
-        <div className={styles.userCard}>
-          <div className={styles.cardLine}>
-            <FontAwesomeIcon icon={faUserAlt} />
-            <h1>{data.name}</h1>
+    <>
+      <div className={styles.outerContainer} id="outer-container">
+        <Navigation pageWrapID={"page-wrap"} outerContainerId={"outer-container"} />
+        <div id="page-wrap" className={styles.pageWrap}>
+          <div className={styles.userCard}>
+            <div className={styles.cardLine}>
+              <FontAwesomeIcon icon={faUserAlt} />
+              <h1>{data.name}</h1>
+            </div>
+            <p>Profile created November 2022</p>
+            {/* {JSON.stringify(data[0])} */}
+            <div className={styles.cardLine}>
+              <FontAwesomeIcon icon={faGuitar} />
+              <h2>{data.instrument}</h2>
+            </div>
+
+            {/* after you create Short Description put if statment to show it */}
+            <Button text="Edit profile" onClick={showProfileModal}></Button>
           </div>
-          <p>Profile created November 2022</p>
-          {/* {JSON.stringify(data[0])} */}
-          <div className={styles.cardLine}>
-            <FontAwesomeIcon icon={faGuitar} />
-            <h2>{data.instrument}</h2>
+
+          <div className={styles.btnContainer}>
+            <Button onClick={deleteAcc} text={"Delete account"} />
+            <ButtonBorder onClick={logOut} text={"Log out"} />
           </div>
 
-          {/* after you create Short Description put if statment to show it */}
-          <Button text="Edit profile" onClick={showProfileModal}></Button>
+          <ProfileModal showModal={showModal} closeModal={closeModal} />
+
+          {/* <ProfileForm /> */}
         </div>
-
-        <div className={styles.btnContainer}>
-          <Button onClick={deleteAcc} text={"Delete account"} />
-          <ButtonBorder onClick={logOut} text={"Log out"} />
-        </div>
-
-        <ProfileModal showModal={showModal} closeModal={closeModal} />
-
-        {/* <ProfileForm /> */}
-      </div>
-      <div>
-        <h2 style={{ textAlign: "left", paddingTop: "3rem", color: "#353a5d" }}>All the ensambles you have created</h2>
-        <div className={styles.ensamblesContainer}>
-          {ensambles !== null &&
-            ensambles.map((ensamble, index) => {
-              return <ProfileEnsambleCard key={"ensamble-" + index} ensamble={ensamble} />;
-            })}
+        <div>
+          <h2 style={{ textAlign: "left", paddingTop: "3rem", color: "#353a5d" }}>All the ensambles you have created</h2>
+          <div className={styles.ensamblesContainer}>
+            {ensambles !== null &&
+              ensambles.map((ensamble, index) => {
+                return <ProfileEnsambleCard key={"ensamble-" + index} ensamble={ensamble} />;
+              })}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

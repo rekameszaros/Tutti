@@ -26,6 +26,7 @@ function LogIn() {
 
         <LogInForm />
       </div>
+      <Footer />
     </div>
   );
 }

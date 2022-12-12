@@ -27,6 +27,7 @@ function SignUp() {
         </div>
         <SignUpForm />
       </div>
+      <Footer />
     </div>
   );
 }

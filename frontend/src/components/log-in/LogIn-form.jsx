@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styles from "../css-modules/form.module.css";
+import Footer from "../shared components/footer/Footer";
 import MyModal from "../shared components/Modal";
 import FormInput from "../signup/ForumInput";
 
@@ -8,6 +9,7 @@ export default function LogInForm() {
   const url = "http://localhost:3005/";
   const [user, setUser] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [modalStatus, setModalStatus] = useState("");
   const closeModal = () => {
     setShowModal(false);
   };
@@ -36,14 +38,11 @@ export default function LogInForm() {
       pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
       required: true,
     },
-   
   ];
 
   const onSwitch = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-
-
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -58,7 +57,6 @@ export default function LogInForm() {
       e.preventDefault();
     };
     checkInfo(event);
-
 
     // console.log(user);
 
@@ -82,10 +80,12 @@ export default function LogInForm() {
     if (res.token) {
       setShowModal(true);
       // setUser(res.id);
-
+      setModalStatus("You have been logged in succesfully");
       setTimeout(() => {
         window.location.replace("/profile?id=" + res.id);
       }, 3000);
+    } else if (res.statusCode === 401) {
+      setModalStatus("Your log in information is not correct. Please try again");
     }
     return res;
   }
@@ -96,19 +96,16 @@ export default function LogInForm() {
 
   return (
     <>
-
-
-
-<div className={styles.app}>
-        <form onSubmit={handleSubmit}  id="myForm">
+      <div className={styles.app}>
+        <form onSubmit={handleSubmit} id="myForm">
           <h1>Log In</h1>
           {inputs.map((input) => (
             <FormInput key={input.id} {...input} value={values[input.name]} onChange={onSwitch} />
           ))}
-           <input type="submit" name="submit" id="submit" value="Log in" />
+          <input type="submit" name="submit" id="submit" value="Log in" />
         </form>
       </div>
-      <MyModal showModal={showModal} text="User has been logged in succesfully" closeModal={closeModal} />
+      <MyModal showModal={showModal} text={modalStatus} closeModal={closeModal} />
     </>
   );
 }
