@@ -6,6 +6,7 @@ import Card from "./CardBack";
 import ButtonBorder from "../button/ButtonBorder";
 import EnsambleCreate from "../../ensemble/createEnsemble-form";
 import notes from "../../../assets/icons8-jazz.svg";
+import MyModal from "../Modal";
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +15,14 @@ const BusinessCard = ({ ensemble }) => {
   const url = "http://localhost:3005/";
   const token = localStorage.getItem("token");
   const [myId, setId] = useState();
+  const [showModal, setShowModal] = useState(false);
+  const [modalStatus, setModalStatus] = useState("");
+  const [data, setData] = useState("");
+  const closeModal = () => {
+    setShowModal(false);
+  };
+  // const [userArray, setUserArray] = useState([ensemble.User]);
+  // lala
   useEffect(() => {
     setId(ensemble._id);
   }, [setId]);
@@ -40,8 +49,23 @@ const BusinessCard = ({ ensemble }) => {
       body: userFromStorage,
     })
       .then((res) => res.json())
-      .then((result) => setData(result))
-      .catch((err) => console.log("error"));
+      .then((result) => {
+        setData(result);
+        if (result.statusCOde === 201) {
+          setShowModal(true);
+          setModalStatus("You have sucessfully joined the ensamble");
+          setTimeout(() => {
+            window.location.replace("/");
+          }, 3000);
+        } else {
+          setModalStatus("Joining the ensamble failed");
+          console.log("could not post");
+          setTimeout(() => {
+            window.location.replace("/");
+          }, 3000);
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   //   {contacts.map((contact, index) => {
@@ -93,6 +117,7 @@ const BusinessCard = ({ ensemble }) => {
           </div>
         </div>
       </ReactCardFlip>
+      <MyModal showModal={showModal} text={modalStatus} closeModal={closeModal} />
     </div>
   );
 };
