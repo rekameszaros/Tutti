@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-items: center;
 }
+
 .form {
   height: 70vh;
   display: flex;

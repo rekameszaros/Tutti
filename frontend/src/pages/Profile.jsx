@@ -3,6 +3,8 @@ import Navigation from "../components/navigation/Navigation";
 import styles from "../pages/css-modules/profile.module.css";
 import Button from "../components/shared components/button/button";
 import ButtonBorder from "../components/shared components/button/ButtonBorder";
+import Footer from "../components/shared components/footer/Footer";
+// import Button from "../components/shared components/button/button";
 import ProfileModal from "../components/profile/ProfileModal";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

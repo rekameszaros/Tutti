@@ -1,6 +1,7 @@
 import styles from "../css-modules/form.module.css";
 import MyModal from "../shared components/Modal";
 import { useState } from "react";
+import Style from "../css-modules/forumInputs.module.css";
 
 function EnsambleCreate() {
   const url = "http://localhost:3005/";
@@ -11,6 +12,7 @@ function EnsambleCreate() {
   const closeModal = () => {
     setShowModal(false);
   };
+
   async function handleSubmit(event) {
     console.log(event);
     console.log(JSON.parse(userFromStorage)._id);
@@ -89,28 +91,28 @@ function EnsambleCreate() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className={styles.formEnsamble}>
-        <label htmlFor="name">
-          Name:
-          <input type="text" name="name" id="name" />
-        </label>
-        <label htmlFor="shortDescription">
-          Short description:
-          <input type="text " name="shortDescription" id="shortDescription" />
-        </label>
-        <label htmlFor="location">
-          Location:
-          <input type="text" name="location" id="location" />
-        </label>
-        {/* <label htmlFor="groupMember">
-          Group members:
-          <input type="number" name="groupMember" id="groupMember" />
-        </label> */}
-        <input type="submit" name="submit" id="submit" value="Submit" />
-      </form>
-      <MyModal showModal={showModal} text="Ensamble was created succesfully" closeModal={closeModal} />
-    </div>
+    <div className={Style.formInput}>
+    <form  onSubmit={handleSubmit} className= "{styles.app} {Style.formInput} ">
+      <label htmlFor="name">
+        Name:
+        <input type="text" name="name" id="name" />
+      </label>
+      <label htmlFor="shortDescription">
+        Short description:
+        <input type="text " name="shortDescription" id="shortDescription" />
+      </label>
+      <label htmlFor="location">
+        Location:
+        <input type="text" name="location" id="location" />
+      </label>
+      {/* <label htmlFor="groupMember">
+        Group members:
+        <input type="number" name="groupMember" id="groupMember" />
+      </label> */}
+      <input type="submit" name="submit" id="submit" value="Submit" />
+    </form>
+    <MyModal showModal={showModal} text="Ensamble was created succesfully" closeModal={closeModal} />
+  </div>  
   );
 }
 

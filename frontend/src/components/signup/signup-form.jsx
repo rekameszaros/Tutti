@@ -15,7 +15,6 @@ function SignUpForm() {
   const [values, setValues] = useState({
     username: "",
     email: "",
-
     password: "",
     confirmPassword: "",
   });

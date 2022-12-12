@@ -1,6 +1,7 @@
 import Navigation from "../components/navigation/Navigation";
 import LogInForm from "../components/log-in/LogIn-form";
 import styles from "../pages/css-modules/logIn.module.css";
+import Footer from "../components/shared components/footer/Footer";
 import notes from "../assets/pale-30.svg";
 import Button from "../components/shared components/button/button";
 function LogIn() {
