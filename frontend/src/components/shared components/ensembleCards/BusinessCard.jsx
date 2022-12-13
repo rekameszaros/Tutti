@@ -80,7 +80,7 @@ const BusinessCard = ({ ensemble }) => {
               <p className={styles.headline}>{ensemble.name}</p>
             </div>
             {/* {createdBy !== null && <p className={styles.name}>Created by: {data.createdBy.name}</p>} */}
-
+            <p className={styles.name}>Created by: {ensemble.createdBy.name}</p>
             <div style={{ display: "flex", columnGap: "0.2rem", paddingLeft: "0.5rem", paddingTop: "0.5rem" }}>
               <FontAwesomeIcon icon={faLocationPin} style={{ color: "#bf1e2e" }} />
               <p className={styles.name}>{ensemble.location}</p>

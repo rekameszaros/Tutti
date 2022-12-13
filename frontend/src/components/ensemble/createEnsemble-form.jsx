@@ -18,7 +18,7 @@ function EnsambleCreate() {
     console.log(JSON.parse(userFromStorage)._id);
     event.preventDefault();
     const ensamble = {
-      createdBy: JSON.parse(userFromStorage),
+      createdBy: userFromStorage,
       name: event.currentTarget.elements.name.value,
       shortDescription: event.currentTarget.elements.shortDescription.value,
       location: event.currentTarget.elements.location.value,
@@ -109,7 +109,9 @@ function EnsambleCreate() {
         Group members:
         <input type="number" name="groupMember" id="groupMember" />
       </label> */}
-      <button type="submit" name="submit" id="submit" value="Submit">Submit</button>
+        <button type="submit" name="submit" id="submit" value="Submit">
+          Submit
+        </button>
       </form>
       <MyModal showModal={showModal} text="Ensamble was created succesfully" closeModal={closeModal} />
     </div>
