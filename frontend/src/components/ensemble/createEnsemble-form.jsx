@@ -18,7 +18,7 @@ function EnsambleCreate() {
     console.log(JSON.parse(userFromStorage)._id);
     event.preventDefault();
     const ensamble = {
-      createdBy: JSON.parse(userFromStorage.name),
+      createdBy: userFromStorage,
       name: event.currentTarget.elements.name.value,
       shortDescription: event.currentTarget.elements.shortDescription.value,
       location: event.currentTarget.elements.location.value,
