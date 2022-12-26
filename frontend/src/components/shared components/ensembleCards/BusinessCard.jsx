@@ -116,6 +116,16 @@ const BusinessCard = ({ ensemble }) => {
                 <h3 style={{ color: "#2c2f4b" }}>Description:</h3>
                 <p className={styles.instrument}>{ensemble.shortDescription}</p>
               </div>
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <h3 style={{ color: "#2c2f4b" }}>Music genre:</h3>
+                {ensemble.musicGenre.map((genre, index) => {
+                  return (
+                    <p key={"genre" + index} className={styles.instrument} style={{ marginLeft: "0.5rem" }}>
+                      {genre.name + ","}
+                    </p>
+                  );
+                })}
+              </div>
               <div>
                 <h3 style={{ color: "#2c2f4b" }}>Contact:</h3>
                 <p className={styles.instrument}>{ensemble.createdBy.email}</p>

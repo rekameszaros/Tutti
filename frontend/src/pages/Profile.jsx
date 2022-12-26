@@ -10,11 +10,13 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAlt, faGuitar, faLocation } from "@fortawesome/free-solid-svg-icons";
 import ProfileEnsambleCard from "../components/profile/ProfileEnsambleCard";
+import Note from "../assets/instrument-icon.svg";
 
 function Profile() {
   const url = "http://localhost:3005/";
   const [data, setData] = useState({});
   const [ensambles, setEnsmables] = useState(null);
+  const [instruments, setInstruments] = useState(null);
   const [userId, setID] = useState("");
   const tokenFromStorage = localStorage.getItem("token");
   const [showModal, setShowModal] = useState(false);
@@ -44,6 +46,7 @@ function Profile() {
         .then((result) => {
           setData(result);
           setEnsmables(result.Ensambles);
+          setInstruments(result.instrument);
           // setEnsmables(result.Ensambles);
           // console.log(ensambles);
         })
@@ -120,14 +123,29 @@ function Profile() {
         <div id="page-wrap" className={styles.pageWrap}>
           <div className={styles.userCard}>
             <div className={styles.cardLine}>
-              <FontAwesomeIcon icon={faUserAlt} />
+              <FontAwesomeIcon icon={faUserAlt} style={{ color: "gray" }} />
               <h1>{data.name}</h1>
             </div>
             <p>Profile created November 2022</p>
             {/* {JSON.stringify(data[0])} */}
             <div className={styles.cardLine}>
-              <FontAwesomeIcon icon={faGuitar} />
-              <h2>{data.instrument}</h2>
+              <img src={Note} alt="Musical notes" />
+              {instruments !== null && instruments.length > 0 ? (
+                instruments.map((instrument, index) => {
+                  return (
+                    <>
+                      <p style={{ color: "white", backgroundColor: "gray", borderRadius: "10px", padding: "0.2rem 0.5rem 0.2rem 0.5rem" }} key={"instrument" + index}>
+                        {" "}
+                        {instrument.name}
+                      </p>
+                    </>
+                  );
+                })
+              ) : (
+                <div>
+                  <p>No instruments selected</p>
+                </div>
+              )}
             </div>
 
             {/* after you create Short Description put if statment to show it */}
@@ -140,8 +158,6 @@ function Profile() {
           </div>
 
           <ProfileModal showModal={showModal} closeModal={closeModal} />
-
-          {/* <ProfileForm /> */}
         </div>
         <div>
           <h2 style={{ textAlign: "left", paddingTop: "3rem", color: "#353a5d", paddingLeft: "5rem" }}>All the ensambles you have created</h2>
@@ -160,13 +176,6 @@ function Profile() {
                 <Button onClick={goCreate} text={"Create ensamble"} />
               </div>
             )}
-            {/* {ensambles.length === 0 ||
-              (ensambles === null && (
-                <>
-                  <p> You have not created an ensamble yet.</p>
-                  <Button>Create ensamble</Button>
-                </>
-              ))} */}
           </div>
         </div>
       </div>
