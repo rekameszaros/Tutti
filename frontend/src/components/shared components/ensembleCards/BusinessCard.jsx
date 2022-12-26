@@ -85,21 +85,25 @@ const BusinessCard = ({ ensemble }) => {
             </div>
             <div style={{ display: "flex", columnGap: "0.2rem", paddingLeft: "0.5rem", paddingTop: "0.5rem" }}>
               <FontAwesomeIcon icon={faLocationPin} style={{ color: "#bf1e2e" }} />
-              <p className={styles.name}>{ensemble.location}</p>
+              <p className={styles.name}>{ensemble.location.charAt(0).toUpperCase() + ensemble.location.slice(1)}</p>
             </div>
           </div>
           <div>
             <h3 className={styles.headline1}>Ensemble members:</h3>
+            {ensemble.User !== null && ensemble.User.length > 0 ? (
+              <div className={styles.nameList}>
+                {ensemble.User.map((member, index) => {
+                  return (
+                    <p key={"member" + index} className={styles.instrument} style={{ marginLeft: "0.5rem", marginBottom: "0.5rem", backgroundColor: "#00000014", padding: "0.2rem 0.5rem 0.2rem 0.5rem", color: "#2c2f4b", borderRadius: "10px" }}>
+                      {member.name}
+                    </p>
+                  );
+                })}
+              </div>
+            ) : (
+              <p style={{ color: "#2c2f4b", marginLeft: "0.5rem" }}>There are no members yet.</p>
+            )}
 
-            <div className={styles.nameList}>
-              {ensemble.User.map((member, index) => {
-                return (
-                  <p key={"member" + index} className={styles.instrument} style={{ marginLeft: "0.5rem" }}>
-                    {member.name + ","}
-                  </p>
-                );
-              })}
-            </div>
             {token && (
               <div style={{ display: "flex", columnGap: "1em" }}>
                 <Button onClick={postUser} text="Join Ensemble" />
