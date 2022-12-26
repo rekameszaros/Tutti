@@ -52,7 +52,7 @@ const BusinessCard = ({ ensemble }) => {
       .then((res) => res.json())
       .then((result) => {
         setData(result);
-        setCreatedBy(result.createdBy.name);
+        // setCreatedBy(result.createdBy.name);
         if (result.statusCOde === 201) {
           setShowModal(true);
           setModalStatus("You have sucessfully joined the ensamble");
