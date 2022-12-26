@@ -19,6 +19,9 @@ export class Ensamble {
   @Prop({ required: true })
   shortDescription: string;
 
+  @Prop({ required: false })
+  musicGenre: Array<Object>;
+
   @Prop()
   User: User[];
 }

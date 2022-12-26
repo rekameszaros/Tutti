@@ -55,6 +55,9 @@
 .form {
   font-size: 1em;
 }
+.form .e-multiselect-wrapper .e-chips {
+  background-color: aqua;
+}
 .flex {
   display: flex;
   column-gap: 1vw;
@@ -67,22 +70,23 @@
 }
 .profileForm .insideForm {
   display: flex;
+  align-items: center;
   flex-direction: column;
   row-gap: 2vw;
   border-radius: 10px;
   padding: 3vw;
-  width: 40%;
+  width: 80%;
   margin: 1.5vw;
 }
 .profileForm {
-  height: 80vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   background-color: #dcdeeca9;
   border-radius: 10px;
   padding: 3vw;
-  width: 40%;
-  margin: 1.5vw;
+  width: 100%;
+  /* margin: 1.5vw; */
   justify-content: center;
 }
 .profileForm input {
@@ -111,9 +115,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: auto;
   background-size: cover;
   background-position: center;
+  width: 55%;
 }
 
 form {

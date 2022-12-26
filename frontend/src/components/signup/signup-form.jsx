@@ -1,6 +1,7 @@
 import { useState } from "react";
+
 import styles from "../css-modules/form.module.css";
-import Select from "react-select";
+import Multiselect from "multiselect-react-dropdown";
 import MyModal from "../shared components/Modal";
 import FormInput from "./ForumInput";
 
@@ -27,7 +28,7 @@ function SignUpForm() {
       placeholder: "Username",
       errorMessage: "Username should be 3-16 characters and shouldn't include any special character!",
       label: "Username",
-      pattern: "^[A-Za-z0-9]{3,16}$",
+      pattern: "^[A-Za-z0-9 ]{3,16}$",
       required: true,
     },
     {
@@ -66,15 +67,31 @@ function SignUpForm() {
   };
 
   const options = [
-    { value: "piano", label: "Piano" },
-    { value: "guitar", label: "Guitar" },
-    { value: "cello", label: "Cello" },
-    { value: "violin", label: "Violin" },
+    { name: "piano", id: 1 },
+    { name: "guitar", id: 2 },
+    { name: "cello", id: 3 },
+    { name: "clarinet", id: 4 },
+    { name: "accordion", id: 5 },
+    { name: "drum", id: 6 },
+    { name: "flute", id: 7 },
+    { name: "harp", id: 8 },
+    { name: "saxophone", id: 9 },
+    { name: "trombone", id: 10 },
+    { name: "trumpet", id: 11 },
+    { name: "ukulele", id: 12 },
+    { name: "xylophone", id: 13 },
   ];
 
+  const [items, setItems] = useState([]);
+  const handleSelect = (selectedList) => {
+    setItems(selectedList);
+  };
+  const handleRemove = (selectedList) => {
+    setItems(selectedList);
+  };
   async function handleSubmit(event) {
     event.preventDefault();
-
+    console.log(items);
     const checkInfo = (e) => {
       e.preventDefault();
     };
@@ -82,15 +99,14 @@ function SignUpForm() {
     checkInfo(event);
 
     let newUser = {};
-    console.log("cliocked ");
-    console.log(event.target[0].value);
     newUser = {
       name: event.target[0].value,
       email: event.target[1].value,
       password: event.target[2].value,
       confirmPassword: event.target[3].value,
-      instrument: event.currentTarget.elements.instrument.value,
+      instrument: items,
     };
+    console.log(newUser);
     const response = await postUser(newUser);
   }
 
@@ -120,13 +136,26 @@ function SignUpForm() {
   return (
     <>
       <div className={styles.app}>
-        <form onSubmit={handleSubmit}>
-          <h1>Register</h1>
+        <form onSubmit={handleSubmit} style={{ paddingTop: "2rem", width: "60%" }}>
+          <h1 style={{ color: "#353a5d" }}>Register</h1>
           {inputs.map((input) => (
             <FormInput key={input.id} {...input} value={values[input.name]} onChange={onSwitch} />
           ))}
-          <Select options={options} name="instrument" id="instrument" defaultValue={user.instument} />
-          <button type="submit" id="submit" value="Submit">Submit</button>
+          <label>
+            Instrument
+            <Multiselect
+              options={options}
+              selectedValues={items}
+              onSelect={handleSelect}
+              onRemove={handleRemove}
+              displayValue="name"
+              style={{ chips: { backgroundColor: "#353a5d" }, searchBox: { height: "auto" } }}
+              placeholder="Select your instruments"
+            />
+          </label>
+          <button type="submit" id="submit" value="Submit" style={{ backgroundColor: "#353a5d" }}>
+            Sign up
+          </button>
         </form>
       </div>
       <MyModal showModal={showModal} text="User has been signed up succesfully" closeModal={closeModal} />

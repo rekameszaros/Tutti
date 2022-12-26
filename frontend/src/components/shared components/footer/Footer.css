@@ -24,7 +24,17 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
+.mailContainer {
+  width: 100%;
+  height: 8vw;
+  background: #353a5d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mailContainer img {
+  width: 6vw;
+}
 footer div {
   display: flex;
   flex-direction: row;

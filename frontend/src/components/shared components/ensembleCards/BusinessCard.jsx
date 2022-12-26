@@ -9,7 +9,7 @@ import notes from "../../../assets/icons8-jazz.svg";
 import MyModal from "../Modal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import { faLocationPin, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const BusinessCard = ({ ensemble }) => {
   const url = "http://localhost:3005/";
@@ -79,25 +79,31 @@ const BusinessCard = ({ ensemble }) => {
               <img src={notes} alt="Musical notes" />
               <p className={styles.headline}>{ensemble.name}</p>
             </div>
-            {/* {createdBy !== null && <p className={styles.name}>Created by: {data.createdBy.name}</p>} */}
-            <p className={styles.name}>Created by: {ensemble.createdBy.name}</p>
+            <div style={{ display: "flex", columnGap: "0.2rem", paddingLeft: "0.5rem", paddingTop: "0.5rem", alignItems: "baseline" }}>
+              <FontAwesomeIcon icon={faUser} style={{ color: "#bf1e2e" }} />
+              <p className={styles.name}> {ensemble.createdBy.name}</p>
+            </div>
             <div style={{ display: "flex", columnGap: "0.2rem", paddingLeft: "0.5rem", paddingTop: "0.5rem" }}>
               <FontAwesomeIcon icon={faLocationPin} style={{ color: "#bf1e2e" }} />
-              <p className={styles.name}>{ensemble.location}</p>
+              <p className={styles.name}>{ensemble.location.charAt(0).toUpperCase() + ensemble.location.slice(1)}</p>
             </div>
           </div>
           <div>
             <h3 className={styles.headline1}>Ensemble members:</h3>
+            {ensemble.User !== null && ensemble.User.length > 0 ? (
+              <div className={styles.nameList}>
+                {ensemble.User.map((member, index) => {
+                  return (
+                    <p key={"member" + index} className={styles.instrument} style={{ marginLeft: "0.5rem", marginBottom: "0.5rem", backgroundColor: "#00000014", padding: "0.2rem 0.5rem 0.2rem 0.5rem", color: "#2c2f4b", borderRadius: "10px" }}>
+                      {member.name}
+                    </p>
+                  );
+                })}
+              </div>
+            ) : (
+              <p style={{ color: "#2c2f4b", marginLeft: "0.5rem" }}>There are no members yet.</p>
+            )}
 
-            <div className={styles.nameList}>
-              {ensemble.User.map((member, index) => {
-                return (
-                  <p key={"member" + index} className={styles.instrument} style={{ marginLeft: "0.5rem" }}>
-                    {member.name + ","}
-                  </p>
-                );
-              })}
-            </div>
             {token && (
               <div style={{ display: "flex", columnGap: "1em" }}>
                 <Button onClick={postUser} text="Join Ensemble" />
@@ -110,8 +116,24 @@ const BusinessCard = ({ ensemble }) => {
         <div>
           <div>
             <div className={styles.backContainer}>
-              <h3 style={{ color: "#2c2f4b" }}>Description:</h3>
-              <p className={styles.instrument}>{ensemble.shortDescription}</p>
+              <div>
+                <h3 style={{ color: "#2c2f4b" }}>Description:</h3>
+                <p className={styles.instrument}>{ensemble.shortDescription}</p>
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <h3 style={{ color: "#2c2f4b" }}>Music genre:</h3>
+                {ensemble.musicGenre.map((genre, index) => {
+                  return (
+                    <p key={"genre" + index} className={styles.instrument} style={{ marginLeft: "0.5rem" }}>
+                      {genre.name + ","}
+                    </p>
+                  );
+                })}
+              </div>
+              <div>
+                <h3 style={{ color: "#2c2f4b" }}>Contact:</h3>
+                <p className={styles.instrument}>{ensemble.createdBy.email}</p>
+              </div>
               <Button onClick={showFront} text="Hide Details"></Button>
             </div>
           </div>

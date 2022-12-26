@@ -17,6 +17,9 @@ export class EnsambleDto {
   shortDescription: string;
 
   // @IsNotEmpty()
+  musicGenre: Array<Object>;
+
+  // @IsNotEmpty()
   User: User[];
 
   constructor(
@@ -24,12 +27,14 @@ export class EnsambleDto {
     name: string,
     location: string,
     shortDescription: string,
+    musicGenre: Array<Object>,
     User: User[],
   ) {
     this.createdBy = createdBy;
     this.name = name;
     this.location = location;
     this.shortDescription = shortDescription;
+    this.musicGenre = musicGenre;
     this.User = User;
   }
 }

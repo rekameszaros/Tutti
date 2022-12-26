@@ -97,12 +97,14 @@ export default function LogInForm() {
   return (
     <>
       <div className={styles.app}>
-        <form onSubmit={handleSubmit} id="myForm">
+        <form onSubmit={handleSubmit} id="myForm" style={{ paddingTop: "2rem", width: "60%" }}>
           <h1>Log In</h1>
           {inputs.map((input) => (
             <FormInput key={input.id} {...input} value={values[input.name]} onChange={onSwitch} />
           ))}
-          <button type="submit" name="submit" id="submit" value="Log in">Log in</button>
+          <button type="submit" name="submit" id="submit" value="Log in" style={{ backgroundColor: "#353a5d" }}>
+            Log in
+          </button>
         </form>
       </div>
       <MyModal showModal={showModal} text={modalStatus} closeModal={closeModal} />
