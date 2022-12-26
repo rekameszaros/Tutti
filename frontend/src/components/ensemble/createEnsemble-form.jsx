@@ -91,8 +91,10 @@ function EnsambleCreate() {
   }
 
   return (
-    <div className={Style.formInput}>
-      <form onSubmit={handleSubmit} className="{styles.app} {Style.formInput} ">
+    <div className={styles.app}>
+      <form onSubmit={handleSubmit} style={{ paddingTop: "2rem", width: "60%" }}>
+        <h1 style={{ color: "#353a5d" }}>Create an ensamble</h1>
+
         <label htmlFor="name">
           Name:
           <input type="text" name="name" id="name" />
