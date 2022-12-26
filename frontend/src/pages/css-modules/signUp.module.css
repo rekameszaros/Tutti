@@ -3,10 +3,10 @@
   flex-direction: row-reverse;
   justify-content: space-around;
   color: #353a5d;
-  height: 90vh;
+  height: auto;
   align-items: center;
-
-  /* padding-top: 8vw; */
+  column-gap: 4rem;
+  margin: 2rem 2rem 2rem 2rem;
 }
 
 /* .pageWrap form {

@@ -16,7 +16,7 @@ export class User {
   password: string;
 
   @Prop({ required: true })
-  instrument: string;
+  instrument: Array<Object>;
 
   @Prop([Ensamble])
   Ensambles: Ensamble[];

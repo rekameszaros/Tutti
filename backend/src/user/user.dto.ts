@@ -11,7 +11,7 @@ export class UserDto {
   password: string;
 
   @IsNotEmpty()
-  instrument: string;
+  instrument: Array<Object>;
 
   // @IsNotEmpty()
   Ensambles: Ensamble[];
@@ -20,7 +20,7 @@ export class UserDto {
     name: string,
     email: string,
     password: string,
-    instrument: string,
+    instrument: Array<Object>,
     Ensambles: Ensamble[],
   ) {
     this.name = name;

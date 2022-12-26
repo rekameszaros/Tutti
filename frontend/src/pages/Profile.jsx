@@ -110,6 +110,9 @@ function Profile() {
     localStorage.clear();
     window.location.replace("/login");
   };
+  const goCreate = () => {
+    window.location.replace("/create");
+  };
   return (
     <>
       <div className={styles.outerContainer} id="outer-container">
@@ -143,10 +146,27 @@ function Profile() {
         <div>
           <h2 style={{ textAlign: "left", paddingTop: "3rem", color: "#353a5d", paddingLeft: "5rem" }}>All the ensambles you have created</h2>
           <div className={styles.ensamblesContainer}>
-            {ensambles !== null &&
+            {ensambles !== null && ensambles.length > 0 ? (
               ensambles.map((ensamble, index) => {
-                return <ProfileEnsambleCard key={"ensamble-" + index} ensamble={ensamble} />;
-              })}
+                return (
+                  <>
+                    <ProfileEnsambleCard key={"ensamble-" + index} ensamble={ensamble} />
+                  </>
+                );
+              })
+            ) : (
+              <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-around" }}>
+                <h3 style={{ paddingRight: "2rem" }}> You have not created any ensambles yet.</h3>
+                <Button onClick={goCreate} text={"Create ensamble"} />
+              </div>
+            )}
+            {/* {ensambles.length === 0 ||
+              (ensambles === null && (
+                <>
+                  <p> You have not created an ensamble yet.</p>
+                  <Button>Create ensamble</Button>
+                </>
+              ))} */}
           </div>
         </div>
       </div>
