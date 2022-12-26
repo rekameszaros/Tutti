@@ -154,7 +154,7 @@ function SignUpForm() {
             />
           </label>
           <button type="submit" id="submit" value="Submit" style={{ backgroundColor: "#353a5d" }}>
-            Submit
+            Sign up
           </button>
         </form>
       </div>

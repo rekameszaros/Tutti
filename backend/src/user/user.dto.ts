@@ -10,7 +10,7 @@ export class UserDto {
   @IsNotEmpty()
   password: string;
 
-  @IsNotEmpty()
+  // @IsNotEmpty()
   instrument: Array<Object>;
 
   // @IsNotEmpty()
