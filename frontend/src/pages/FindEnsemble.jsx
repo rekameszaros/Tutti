@@ -97,17 +97,20 @@ const FindEnsemble = () => {
           <ButtonBorder text="See all" onClick={getAll} />
         </form>
         {ensambles !== null && ensambles.length > 0 ? (
-          <div style={{ display: "flex", flexWrap: "wrap", height: "auto" }}>
-            {ensambles.map((ensamble, index) => {
-              return (
-                <>
-                  <div>
-                    <BusinessCard key={"ensamble-" + index} ensemble={ensamble} />
-                  </div>
-                </>
-              );
-            })}
-          </div>
+          <>
+            <p style={{ marginTop: "2rem", color: "#2c2f4b" }}>{ensambles.length > 1 ? ensambles.length + " results" : ensambles.length + " result"}</p>
+            <div style={{ display: "flex", flexWrap: "wrap", height: "auto" }}>
+              {ensambles.map((ensamble, index) => {
+                return (
+                  <>
+                    <div>
+                      <BusinessCard key={"ensamble-" + index} ensemble={ensamble} />
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+          </>
         ) : (
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: "50vh", rowGap: "1rem" }}>
             <img src={noResults} alt="no results icon" />
