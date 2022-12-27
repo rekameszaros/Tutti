@@ -1,0 +1,14 @@
+.container {
+  padding: 3rem;
+}
+.container form {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 3rem;
+}
+
+.container form button {
+  width: 25%;
+}

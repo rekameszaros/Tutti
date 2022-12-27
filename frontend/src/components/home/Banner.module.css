@@ -1,3 +1,7 @@
+.mainContainer {
+  background-color: white;
+  padding: 2rem 0 2rem 0;
+}
 .container {
   display: flex;
   justify-content: space-between;
@@ -11,4 +15,9 @@
   max-width: 50vw;
   line-height: 1em;
   font-size: 2.5rem;
+}
+.btnContainer {
+  display: flex;
+  column-gap: 2rem;
+  margin-left: 5rem;
 }

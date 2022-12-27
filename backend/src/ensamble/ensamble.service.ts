@@ -15,6 +15,13 @@ export class EnsambleService {
     return this.ensambleModel.find().exec();
   }
 
+  async getFilteredEnsambles(filter: any) {
+    const filteredArray = await this.ensambleModel
+      .find({ location: filter.filterBy })
+      .exec();
+    return filteredArray;
+  }
+
   createEnsamble(ensamble: EnsambleDto) {
     const savedEnsamble = new this.ensambleModel(ensamble);
     savedEnsamble.save();
