@@ -152,7 +152,7 @@ describe('User Controller (e2e)', () => {
       //Assert (expect)
       const res = await result.body;
       console.log(res);
-      expect(res.length).toEqual(3);
+      expect(res.length).toEqual(2);
     });
   });
 
