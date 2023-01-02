@@ -61,7 +61,7 @@ export default function LogInForm() {
     // console.log(user);
 
     const response = await postUser(logUser);
-    console.log(response.token);
+    // console.log(response.token);
     localStorage.setItem("token", response.token);
     localStorage.setItem("id", response.id);
   }
@@ -79,12 +79,12 @@ export default function LogInForm() {
 
     if (res.token) {
       setShowModal(true);
-      // setUser(res.id);
       setModalStatus("You have been logged in succesfully");
       setTimeout(() => {
         window.location.replace("/profile?id=" + res.id);
       }, 3000);
     } else if (res.statusCode === 401) {
+      setShowModal(true);
       setModalStatus("Your log in information is not correct. Please try again");
     }
     return res;

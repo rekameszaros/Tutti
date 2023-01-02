@@ -55,43 +55,6 @@ function Profile() {
     }
   }, []);
 
-  // useEffect(() => {
-  //   console.log(userId);
-  //   getSpecificUser(userId);
-  //   function getSpecificUser(userId) {
-  //     fetch(url + "user/" + userId, {
-  //       method: "GET",
-  //       // does not work
-  //       // Authorization: `Bearer ${tokenFromStorage}`,
-  //     })
-  //       .then((res) => res.json())
-  //       .then((result) => {
-  //         setData(result);
-  //         // setEnsmables(result.Ensambles);
-  //         // console.log(ensambles);
-  //       })
-
-  //       .catch((err) => console.log("error"));
-  //   }
-  // }, [userId]);
-
-  // useEffect(() => {
-  //   console.log(data.Ensambles);
-  //   setEnsmables(data.Ensambles);
-  // }, [data]);
-  // const getSpecificUser = (id) => {
-  //   fetch(url + "user/" + id, {
-  //     method: "GET",
-  //     // does not work
-  //     // Authorization: `Bearer ${tokenFromStorage}`,
-  //   })
-  //     .then((res) => res.json())
-  //     .then((result) => {
-  //       setData(result);
-  //     })
-  //     .catch((err) => console.log("error"));
-  // };
-
   const deleteAcc = () => {
     fetch(url + "user/" + userId, {
       method: "DELETE",
