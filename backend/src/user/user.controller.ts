@@ -12,9 +12,9 @@ import { UserService } from './user.service';
 import { User } from './user.schema';
 import { UserDto } from './user.dto';
 import { ObjectId } from 'mongoose';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from './../auth/jwt-auth.guard';
 import { UseGuards, Request } from '@nestjs/common';
-import { EnsambleDto } from 'src/ensamble/ensamble.dto';
+import { EnsambleDto } from './../ensamble/ensamble.dto';
 
 @Controller('user')
 export class UserController {
@@ -30,11 +30,11 @@ export class UserController {
   }
 
   // this solves the error in the console but makes the get on top not work anymore
-  // @Get('/')
-  // async getUsers(@Req() request: Request): Promise<User[]> {
-  //   const result: User[] = await this.userService.getUsers();
-  //   return result;
-  // }
+  @Get()
+  async getUsers(@Req() request: Request): Promise<User[]> {
+    const result: User[] = await this.userService.getUsers();
+    return result;
+  }
 
   @Post()
   createUser(@Body() userDto: UserDto, @Request() req) {

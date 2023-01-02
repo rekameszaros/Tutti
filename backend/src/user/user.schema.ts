@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { Ensamble } from 'src/ensamble/ensamble.schema';
+import { Ensamble } from './../ensamble/ensamble.schema';
 
 export type UserDocument = User & Document;
 

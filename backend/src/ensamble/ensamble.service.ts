@@ -39,4 +39,7 @@ export class EnsambleService {
 
     return updateEnsambel.save();
   }
+  deleteMany(deleteCriteria: any) {
+    return this.ensambleModel.deleteMany(deleteCriteria);
+  }
 }

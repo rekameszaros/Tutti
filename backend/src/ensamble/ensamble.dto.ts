@@ -23,7 +23,7 @@ export class EnsambleDto {
   User: User[];
 
   constructor(
-    createdBy: string,
+    createdBy: Object,
     name: string,
     location: string,
     shortDescription: string,

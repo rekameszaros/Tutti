@@ -10,7 +10,7 @@ import {
 import { EnsambleService } from './ensamble.service';
 import { EnsambleDto } from './ensamble.dto';
 import { Ensamble } from './ensamble.schema';
-import { UserDto } from 'src/user/user.dto';
+import { UserDto } from './../user/user.dto';
 
 @Controller('ensamble')
 export class EnsambleController {

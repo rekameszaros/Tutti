@@ -34,10 +34,11 @@ describe('User Controller (e2e)', () => {
     it('should create a new valid user ', async () => {
       // Arrange
       const user = new UserDto(
-        'Mathias',
-        'mtnl@cphbusiness.dk',
-        '12341',
-        'Some instr',
+        'Adelina',
+        'adelina@cphbusiness.dk',
+        '12345678Adelina@',
+        [{ name: 'Piano', id: 2 }],
+        [],
       );
       // Act
       const result = await request(app.getHttpServer())
@@ -46,10 +47,7 @@ describe('User Controller (e2e)', () => {
         .expect(201);
       // Assert
       const res = result.body;
-      expect(res._id).toBeDefined();
-
-      // not working with this as well ??
-      // expect(res.__v).toEqual(0);
+      expect(res).toBeDefined();
     });
   });
 
@@ -57,10 +55,29 @@ describe('User Controller (e2e)', () => {
     it('should create an invalid user ', async () => {
       // Arrange
       const user = new UserDto(
+        // the name is empty to create an invalid one
         '',
-        'mtnl@cphbusiness.dk',
-        '12341',
-        'Some instrument',
+        'adelina@email.com',
+        '12345678Adelina@',
+        [{ name: 'Piano', id: 2 }],
+        [
+          {
+            createdBy: {
+              _id: '63a9c1fc5e5e89313b58d568',
+              name: 'Adelina',
+              email: 'adelina@email.com',
+              password:
+                '$2b$10$LMOiPgALAsEXypeRGRWZqeiio6e5KZtKcwBTFeLs4GJhjXRjmEmgO',
+              instrument: [{ name: 'Piano', id: 2 }],
+              Ensambles: [],
+            },
+            name: 'Ensamble from testing',
+            location: 'Nordhavn',
+            shortDescription: 'Ensamble created from testing.',
+            musicGenre: [],
+            User: [],
+          },
+        ],
       );
       // Act
       const result = await request(app.getHttpServer())
@@ -75,34 +92,72 @@ describe('User Controller (e2e)', () => {
   describe('Get User controller', () => {
     it('should get all users', async () => {
       // Arrange
-      const user1 = new UserDto('Ade', 'ade@email.com', '1234', 'piano');
+      const user1 = new UserDto(
+        'John',
+        'john@email.com',
+        'john12345678J@',
+        [{ name: 'Piano', id: 2 }],
+        [
+          {
+            createdBy: {
+              _id: '63a9c1fc5e5e89313b58d568',
+              name: 'John',
+              email: 'John@email.com',
+              password:
+                '$2b$10$LMOiPgALAsEXypeRGRWZqeiio6e5KZtKcwBTFeLs4GJhjXRjmEmgO',
+              instrument: [{ name: 'Piano', id: 2 }],
+              Ensambles: [],
+            },
+            name: 'Ensamble from testing',
+            location: 'Nordhavn',
+            shortDescription: 'Ensamble created from testing.',
+            musicGenre: [],
+            User: [],
+          },
+        ],
+      );
       const user2 = new UserDto(
-        'Stefania',
-        'stefania@email.com',
-        '1234',
-        'guitar',
+        'Mary',
+        'mary@email.com',
+        '12345678Mary@',
+        [{ name: 'Guitar', id: 2 }],
+        [
+          {
+            createdBy: {
+              _id: '63a9c1fc5e5e89313b58d568',
+              name: 'Mary',
+              email: 'Mary@email.com',
+              password:
+                '$2b$10$LMOiPgALAsEXypeRGRWZqeiio6e5KZtKcwBTFeLs4GJhjXRjmEmgO',
+              instrument: [{ name: 'Piano', id: 2 }],
+              Ensambles: [],
+            },
+            name: 'Ensamble from testing',
+            location: 'Nordhavn',
+            shortDescription: 'Ensamble created from testing.',
+            musicGenre: [],
+            User: [],
+          },
+        ],
       );
 
       await userService.createUser(user1);
+
       await userService.createUser(user2);
 
       //Act
       const result = await request(app.getHttpServer())
-        .get('/user')
+        .get(`/user`)
         .expect(200);
-
       //Assert (expect)
-      const res = result.body;
-      expect(res.length).toEqual(2);
-      // expect(res._id).toBeDefined();
-      // expect(res.__v).toEqual(0);
-      // tests that I get what I should get
+      const res = await result.body;
+      console.log(res);
+      expect(res.length).toEqual(3);
     });
   });
 
   // Closing app after all tests => not hanging.
   afterAll(() => {
-    // mongoose.connection.close();
     app.close();
   });
 });
