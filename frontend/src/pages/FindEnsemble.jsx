@@ -8,12 +8,18 @@ import styles from "./css-modules/findEnsambles.module.css";
 import noResults from "../assets/no-results.svg";
 import Button from "../components/shared components/button/button";
 import ButtonBorder from "../components/shared components/button/ButtonBorder";
+import MyModal from "../components/shared components/Modal";
 
 const url = "http://localhost:3005/ensamble";
 
 const FindEnsemble = () => {
   const [ensambles, setEnsambles] = useState([]);
   const [initialEnsambles, setInitialEnsambles] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [modalStatus, setModalStatus] = useState("");
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const optionsLocation = [
     { value: "frederiksberg", label: "Frederiksberg" },
@@ -50,8 +56,17 @@ const FindEnsemble = () => {
     const filterBy = {
       filterBy: event.currentTarget.elements.location.value,
     };
-    const response = await getFilteredEnsambles(filterBy);
+if (filterBy.filterBy === "") { 
+  setShowModal(true)
+  setModalStatus("Please choose a location.")
+  setTimeout(() => {
+    window.location.replace("/find");
+  }, 3000);
+} else {
+  const response = await getFilteredEnsambles(filterBy);
     console.log(response);
+}
+    
   }
 
   async function getFilteredEnsambles(filter) {
@@ -119,6 +134,7 @@ const FindEnsemble = () => {
         )}
       </div>
       <Footer />
+      <MyModal showModal={showModal} text={modalStatus} closeModal={closeModal} />
     </>
   );
 };
